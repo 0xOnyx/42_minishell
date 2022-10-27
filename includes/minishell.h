@@ -12,6 +12,9 @@
 # include <dirent.h>
 # include <sys/ioctl.h>
 # include <terminos.h>
-# include <>
+# include <curses.h>
+# include <term.h>
+
+
 
 #endif
