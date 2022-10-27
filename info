@@ -3,3 +3,16 @@ https://stackoverflow.com/questions/52666511/create-an-ast-from-bash-in-c
 https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 https://www.twilio.com/blog/abstract-syntax-trees
 https://www.geeksforgeeks.org/developing-linux-based-shell/
+
+
+
+1. “#” : IO
+2. [ 1 ]?”>” : IO
+3. “” : IO
+5. [ 1]?”>>” : IO
+6. [ 1-2]”>&”[1-2 ] : IOR
+7. “|” : PIPE
+8. “&” : AMPERSAND
+9. [ ]”-“[a-zA-Z0-9]* : OPTION
+10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
+11. \%\=\+\’\”\(\)\$\/\_\-\.\?\*\~a-zA-Z0-9]+ : WORD
