@@ -9,12 +9,13 @@ HEADER = minishell.h
 SRC_PARSER = parser.c
 SRC_ROUTINE = routine.c
 
-SRC_PARSER = $(addprefix $(PATH_PARSER),$(SRC_PARSER))
-SRC_ROUTINE = $(addprefix $(PATH_ROUTINE),$(SRC_ROUTINE))
-OBJ = $(SRCS:.c=.o)
+SRC_PARSERS = $(addprefix $(PATH_PARSER),$(SRC_PARSER))
+SRC_ROUTINES = $(addprefix $(PATH_ROUTINE),$(SRC_ROUTINE))
 
-SRCS = SRC_PARSER + SRC_ROUTINE
-OBJS = $(addprefix $(PATH_OBJ),$(SRCS))
+SRCS = $(SRC_PARSERS) $(SRC_ROUTINES)
+
+OBJ = $(SRCS:.c=.o)
+OBJS = $(addprefix $(PATH_OBJ),$(OBJ))
 HEADERS = $(addprefix $(PATH_HEADER),$(HEADER))
 
 CFLAGS = -Wall -Werror -Wextra
@@ -23,16 +24,18 @@ LIBS  = -lreadline
 CC = gcc
 RM = rm -rf
 
-$(PATH_OBJ)%.o: $(PATH_ROUTINE)%.c $(HEADERS)
-	mkdir -p $(PATH_OBJS)
+$(PATH_OBJ)$(PATH_ROUTINE)%.o: $(PATH_ROUTINE)%.c $(HEADERS)
+	mkdir -p $(PATH_OBJS)$(PATH_ROUTINE)
 	$(CC) $(CFLAGS) $(OPTIONS) -o $(@) $(<)
 
-$(PATH_OBJ)%.o: $(PATH_PARSER)%.c $(HEADERS)
+$(PATH_OBJ)$(PATH_PARSER)%.o: $(PATH_PARSER)%.c $(HEADERS)
+	mkdir -p $(PATH_OBJS)$(PATH_PARSER)
 	$(CC) $(CFLAGS) $(OPTIONS) -o $(@) $(<)
 
+test:
+	@echo $(OBJS)
 
 all: $(NAME)
-	mkdir -p $(PATH_OBJS)
 	$(CC)
 
 $(NAME): $(OBJS)
