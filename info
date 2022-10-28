@@ -16,3 +16,4 @@ https://www.geeksforgeeks.org/developing-linux-based-shell/
 9. [ ]”-“[a-zA-Z0-9]* : OPTION
 10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
 11. \%\=\+\’\”\(\)\$\/\_\-\.\?\*\~a-zA-Z0-9]+ : WORD
+

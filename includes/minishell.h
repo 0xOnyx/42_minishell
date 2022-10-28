@@ -1,19 +1,7 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/wait.h>
-# include <signal.h>
-# include <sys/stat.h>
-# include <dirent.h>
-# include <sys/ioctl.h>
-# include <terminos.h>
-# include <curses.h>
-# include <term.h>
+# include "includers.h"
 
 enum 	e_type
 {
@@ -45,7 +33,20 @@ typedef struct s_command
 	int 	stderr;
 }	t_command;
 
+typedef struct s_lexical
+{
+	enum e_type			type;
+	char				*str;
+	struct s_lexical	*next;
+}	t_lexical;
 
-t_command *parser(char *str);
+typedef struct s_data
+{
+	t_type		type[11];
+	t_command	*command;
+	t_malloc	*garbage;
+}	t_data;
+
+int	parser(t_data *data, char *str);
 
 #endif
