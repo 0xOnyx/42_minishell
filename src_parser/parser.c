@@ -25,3 +25,4 @@ int	parser(t_data *data, char *str)
 		return (1);
 	return (0);
 }
+
