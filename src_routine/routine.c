@@ -1,9 +1,23 @@
 #include "minishell.h"
 #include <stdio.h>
+
+
+grep -a " " | cat < ;
+
+
 int	main(int argc, char **argv, char **env)
 {
-	printf("%d %s value => %s\n", argc, argv[0], env[0]);
+	int i;
+	int	fd[2];
+	int tmp_fd;
 
-	//int res  = parser(argv[0]);
+	i = 0;
+	tmp_fd = dup(1);
+	while (argv[i])
+	{
+		
+
+	}
+
 	return (0);
 }
