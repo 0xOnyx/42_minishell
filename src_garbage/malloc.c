@@ -19,3 +19,17 @@ int	ft_calloc(t_malloc **root, void **element, size_t len, size_t nbr)
 	ft_memset(*element, 0, len * nbr);
 	return (0);
 }
+
+int ft_realloc(t_malloc **root, void **element, size_t old_size, size_t new_size)
+{
+	void	*old;
+
+	old = *element;
+	if (!*root)
+		return (ft_calloc(root, element, new_size, 1));
+	if (ft_malloc(root, element, new_size)
+		|| ft_memcpy(*element, old, old_size)
+		|| del_malloc(root, element))
+		return (1);
+	return (0)
+}

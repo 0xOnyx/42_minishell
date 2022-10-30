@@ -16,4 +16,9 @@
 # include "utils.h"
 # include "garbage.h"
 
+typedef struct s_type		t_type;
+typedef struct s_command	t_command;
+typedef struct s_lexical	t_lexical;
+typedef struct s_data		t_data;
+
 #endif

@@ -1,8 +1,5 @@
 #include "minishell.h"
 
-int	is_in_charset(char *charset);
-
-
 int	lexical_analyser(char *str)
 {
 	int			i;
