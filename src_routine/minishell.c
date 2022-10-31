@@ -3,13 +3,15 @@
 static void	exit_handler(int sign)
 {
 	if (sign == SIGINT)
-	{
-		safe_exit()
-	}
+		safe_exit();
 }
 
-int 	minishell(t_data *data)
+int 	minishell(void)
 {
+	t_data *data;
+
+	data = get_data(NULL);
 	signal(SIGINT, &exit_handler);
-	signal(SIGQUIT, NULL);
+	signal(SIGQUIT, &exit_handler);
+	return (0);
 }

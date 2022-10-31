@@ -9,7 +9,7 @@ void	safe_exit(void)
 	exit(0);
 }
 
-int get_pwd(t_data *data, char **buff)
+int get_pwd(char **buff)
 {
 	if (ft_malloc((void **)buff, 255)
 		||  !getcwd(*buff, 255))

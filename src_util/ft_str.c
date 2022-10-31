@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t i;
 
@@ -23,7 +23,7 @@ int ft_strdup(char **dst, char *src)
 	return (0);
 }
 
-int is_in_charset(char c, char *charset)
+int is_in_charset(char c, const char *charset)
 {
 	int i;
 

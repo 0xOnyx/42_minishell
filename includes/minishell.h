@@ -46,12 +46,15 @@ struct s_data
 	char **env;
 };
 
-int		echo_cmd(t_command *command);
 void	safe_exit(void);
+int		echo_cmd(t_command *command);
+int 	get_pwd(char **buff);
+
 int		init_env(char **env);
 int		add_env(char *str);
 int 	del_env(char *str);
 int 	iter_env(size_t (*f)(char *, int));
+
 int 	minishell(void);
 
 #endif

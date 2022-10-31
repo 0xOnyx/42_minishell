@@ -25,7 +25,7 @@ int add_env(char *str)
 	t_data	*data;
 
 	i = 0;
-	data = get_data(data);
+	data = get_data(NULL);
 	while (is_in_charset(str[i], "="))
 		i++;
 	if (str[i] != '\0')
