@@ -1,7 +1,7 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include "includers.h"
+#include "includers.h"
 
 enum 	e_type
 {
@@ -40,10 +40,10 @@ struct s_lexical
 
 struct s_data
 {
-	t_type type[11];
-	t_command *command;
-	t_malloc *garbage;
-	char **env;
+	t_type		type[11];
+	t_command	*command;
+	t_malloc	*garbage;
+	char		**env;
 };
 
 void	safe_exit(void);

@@ -9,7 +9,7 @@ int	init_env(char **env)
 	data = get_data(NULL);
 	while (env[i])
 		i++;
-	if (ft_calloc((void **)&data->env, i, sizeof(char *)))
+	if (ft_calloc((void **)&(data->env), i + 1, sizeof(char *)))
 		return (1);
 	while (i--)
 	{

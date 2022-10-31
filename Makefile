@@ -38,7 +38,7 @@ HEADERS				= $(addprefix $(PATH_HEADER),$(HEADER))
 DEBUG				= -fsanitize=address -g3
 CFLAGS				= -Wall -Werror -Wextra $(DEBUG)
 OPTIONS				= -I$(PATH_HEADER)
-LIBS				= -lreadline
+LIBS				= -L$(HOME)/.brew/Cellar/readline/8.2.1/lib/ -lreadline -lhistory
 CC					= gcc
 RM					= rm -rf
 
@@ -65,7 +65,7 @@ $(PATH_OBJ)$(PATH_UTIL)%.o		: $(PATH_UTIL)%.c $(HEADERS)
 all			: $(NAME)
 
 $(NAME)		: $(OBJS)
-	@$(CC) $(CFLAGS) $(OPTIONS) $(LIB) -o $(@) $(^)
+	@$(CC) $(CFLAGS) $(OPTIONS) $(LIBS) -o $(@) $(^)
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] LINKAGE $(COLOR_BOLD)ALL OBJS FILE =>\n\t $(COLOR_WHITE)$(^:.o=.o\n\t)"
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION FINISH !"
 

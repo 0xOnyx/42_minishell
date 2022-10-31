@@ -35,8 +35,8 @@ int echo_cmd(t_command *command)
 		option++;
 	}
 	while (command->arguments)
-		ft_putstr(*(command->arguments++), 1);
+		ft_putstr_fd(*(command->arguments++), 1);
 	if (option)
-		ft_putstr("\n", 1);
+		ft_putstr_fd("\n", 1);
 	return (0);
 }

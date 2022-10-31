@@ -2,11 +2,11 @@
 # define GARBAGE_H
 # include "includers.h"
 
-typedef struct s_malloc
+struct s_malloc
 {
 	void			*content;
 	struct s_malloc	*next;
-}	t_malloc;
+};
 
 int 	create_element(void *data);
 int 	add_front(t_malloc *element);

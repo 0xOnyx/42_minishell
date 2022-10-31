@@ -17,7 +17,7 @@ int ft_strdup(char **dst, char *src)
 
 	data = get_data(NULL);
 	len = ft_strlen(src);
-	if (ft_calloc((void **)dst, len, 1)
+	if (ft_calloc((void **)dst, sizeof(char), len + 1)
 		||	ft_memcpy((void *)src, (void *)dst, len))
 		return (1);
 	return (0);

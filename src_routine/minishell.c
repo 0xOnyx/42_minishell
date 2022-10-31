@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "includers.h"
 
 static void	exit_handler(int sign)
 {
@@ -13,5 +13,6 @@ int 	minishell(void)
 	data = get_data(NULL);
 	signal(SIGINT, &exit_handler);
 	signal(SIGQUIT, &exit_handler);
+	readline("test=> \n");
 	return (0);
 }
