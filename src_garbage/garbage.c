@@ -1,9 +1,11 @@
 #include "garbage.h"
 
-int	create_element(t_malloc **element, void *data)
+int	create_element(void *data)
 {
 	t_malloc	*new;
+	t_malloc	**element;
 
+	element = &(get_data(NULL)->garbage);
 	new = malloc(sizeof(t_malloc));
 	if (!new)
 		return (1);
@@ -13,10 +15,12 @@ int	create_element(t_malloc **element, void *data)
 	return (0);
 }
 
-int	add_front(t_malloc **root, t_malloc *element)
+int	add_front(t_malloc *element)
 {
 	t_malloc	*current;
+	t_malloc	**root;
 
+	root = &(get_data(NULL)->garbage);
 	current = *root;
 	if (!current)
 	{
@@ -29,11 +33,13 @@ int	add_front(t_malloc **root, t_malloc *element)
 	return (0);
 }
 
-int	get_id_malloc(t_malloc *root, void *element)
+int	get_id_malloc(void *element)
 {
-	int	i;
+	int			i;
+	t_malloc	*root;
 
 	i = 0;
+	root = get_data(NULL)->garbage;
 	while (root)
 	{
 		if (root->content == element)
@@ -44,8 +50,11 @@ int	get_id_malloc(t_malloc *root, void *element)
 	return (-1);
 }
 
-t_malloc	*get_malloc(t_malloc *root, void *element)
+t_malloc	*get_malloc(void *element)
 {
+	t_malloc	*root;
+
+	root = get_data(NULL)->garbage;
 	while (root)
 	{
 		if (root->content == element)
@@ -62,13 +71,15 @@ int	free_node(t_malloc *current)
 	return (0);
 }
 
-int	del_malloc(t_malloc **root, void *element)
+int	del_malloc(void *element)
 {
 	int			pos;
 	t_malloc	*current;
 	t_malloc	*tmp;
+	t_malloc	**root;
 
-	pos = get_id_malloc(*root, element);
+	root = &(get_data(NULL)->garbage);
+	pos = get_id_malloc(element);
 	current = *root;
 	if (pos < 0)
 		return (1);
@@ -86,11 +97,13 @@ int	del_malloc(t_malloc **root, void *element)
 	return (0);
 }
 
-int	free_all(t_malloc **root)
+int	free_all()
 {
 	t_malloc	*current;
 	t_malloc	*last;
+	t_malloc	**root;
 
+	root = &(get_data(NULL)->garbage);
 	current = *root;
 	last = current;
 	while (last)

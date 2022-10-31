@@ -20,9 +20,9 @@ PATH_OBJ			= objs/
 
 HEADER				= minishell.h utils.h garbage.h
 SRC_PARSER			= parser.c
-SRC_ROUTINE			= routine.c env.c
+SRC_ROUTINE			= routine.c env.c builtins.c minishell.c
 SRC_GARBAGE			= garbage.c malloc.c
-SRC_UTIL			= ft_mem.c ft_str.c
+SRC_UTIL			= ft_mem.c ft_str.c get_data.c
 
 SRC_PARSERS			= $(addprefix $(PATH_PARSER),$(SRC_PARSER))
 SRC_ROUTINES		= $(addprefix $(PATH_ROUTINE),$(SRC_ROUTINE))

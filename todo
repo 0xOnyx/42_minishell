@@ -1,0 +1,14 @@
+
+
+ADD SIGSIGNAL
+Ctrl+C - SIGINT
+Ctrl+\ - SIGQUIT
+
+ctrl-C affiche un nouveau prompt sur une nouvelle ligne.
+ctrl-D quitte le shell
+
+Ctrl+D is not a signal, it's EOF (End-Of-File). It closes the stdin pipe. If read(STDIN) returns 0, it means stdin closed, which means Ctrl+D was hit (assuming there is a keyboard at the other end of the pipe).
+
+ctrl-\ ne fait rien.
+
+

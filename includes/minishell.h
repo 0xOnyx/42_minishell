@@ -25,7 +25,7 @@ struct s_type
 struct s_command
 {
 	char	*command;
-	char	*arguments;
+	char	**arguments;
 	int 	stdin;
 	int 	stdout;
 	int 	stderr;
@@ -46,8 +46,12 @@ struct s_data
 	char **env;
 };
 
-int	parser(t_data *data, char *str);
-int	init_env(t_data *data, char **env);
-int	add_env(t_data *data, char *str);
+int		echo_cmd(t_command *command);
+void	safe_exit(void);
+int		init_env(char **env);
+int		add_env(char *str);
+int 	del_env(char *str);
+int 	iter_env(size_t (*f)(char *, int));
+int 	minishell(void);
 
 #endif

@@ -1,21 +1,19 @@
 #include "minishell.h"
 
-
-
 int	main(int argc, char **argv, char **env)
 {
 	t_data	data;
 
-
 	(void)argv;
 	(void)argc;
 	data = (t_data){};
-	if (init_env(&data, env))
+	get_data(&data);
+	if (init_env(env))
 	{
-		free_all(&data.garbage);
+		free_all();
 		return (1);
 	}
-	minishell(&data);
-	free_all(&data.garbage);
+	minishell();
+	free_all();
 	return (0);
 }

@@ -10,12 +10,14 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-int ft_strdup(t_data *data, char **dst, char *src)
+int ft_strdup(char **dst, char *src)
 {
-	size_t len;
+	size_t	len;
+	t_data	*data;
 
+	data = get_data(NULL);
 	len = ft_strlen(src);
-	if (ft_calloc(&data->garbage, (void **)dst, len, 1)
+	if (ft_calloc((void **)dst, len, 1)
 		||	ft_memcpy((void *)src, (void *)dst, len))
 		return (1);
 	return (0);
@@ -47,4 +49,14 @@ int ft_strncmp(char *a, char *b, size_t n)
 		i++;
 	}
 	return (0);
+}
+
+size_t	ft_putstr_fd(char *str, int fd)
+{
+	size_t len;
+
+	len = ft_strlen(str);
+	if (len == 0)
+		return (0);
+	return (write(fd, (void *)str, len));
 }
