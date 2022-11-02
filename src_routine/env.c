@@ -17,7 +17,7 @@ int	init_env(char **env)
 			return (1);
 	}
 	return (0);
-}
+ }
 
 int add_env(char *str)
 {

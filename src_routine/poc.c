@@ -1,4 +1,17 @@
-#include "minishell.h"
+//#include "minishell.h"
+# include <stdio.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/wait.h>
+# include <signal.h>
+# include <sys/stat.h>
+# include <dirent.h>
+# include <sys/ioctl.h>
+# include <curses.h>
+# include <term.h>
+# include <string.h>
 
 int exec_command(char **argv, int argc, int tmp_fd, char **env)
 {
@@ -26,7 +39,7 @@ int	main(int argc, char **argv, char **env)
 		argv = argv + 1;
 		while (argv[i] && argv[i][0] != ';' && argv[i][0] != '|')
 			i++;
-	/*	if (strncmp(argv[0], "cd", 2) == 0)
+		if (strncmp(argv[0], "cd", 2) == 0)
 		{
 			if (i != 2)
 				printf("error: cd: bad arguments");
@@ -34,7 +47,7 @@ int	main(int argc, char **argv, char **env)
 				perror("error");
 			printf("value => %s\n", argv[1]);
 		}
-		else */ if (!argv[i] || argv[i][0] == ';')
+		else  if (!argv[i] || argv[i][0] == ';')
 		{
 			id = fork();
 			if (id == 0)

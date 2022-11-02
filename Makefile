@@ -20,7 +20,7 @@ PATH_OBJ			= objs/
 
 HEADER				= minishell.h utils.h garbage.h
 SRC_PARSER			= parser.c
-SRC_ROUTINE			= routine.c env.c builtins.c minishell.c
+SRC_ROUTINE			= routine.c env.c builtins.c minishell.c exec_command.c
 SRC_GARBAGE			= garbage.c malloc.c
 SRC_UTIL			= ft_mem.c ft_str.c get_data.c
 
@@ -36,9 +36,9 @@ OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 HEADERS				= $(addprefix $(PATH_HEADER),$(HEADER))
 
 DEBUG				= -fsanitize=address -g3
-CFLAGS				= -Wall -Werror -Wextra $(DEBUG)
-OPTIONS				= -I$(PATH_HEADER)
-LIBS				= -L$(HOME)/.brew/Cellar/readline/8.2.1/lib/ -lreadline -lhistory
+CFLAGS				= $(DEBUG)
+OPTIONS				= -I$(PATH_HEADER) -I$(HOME)/.brew/opt/readline/include
+LIBS				= -L$(HOME)/.brew/opt/readline/lib/ -lreadline -lhistory
 CC					= gcc
 RM					= rm -rf
 

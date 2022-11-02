@@ -1,25 +1,26 @@
 #include "garbage.h"
 
-int	create_element(void *data)
+int	create_element(t_malloc **new, void *data)
 {
-	t_malloc	*new;
-	t_malloc	**element;
+	t_malloc	*element;
 
-	element = &(get_data(NULL)->garbage);
-	new = malloc(sizeof(t_malloc));
-	if (!new)
+	element = malloc(sizeof(t_malloc));
+	if (!element)
 		return (1);
-	new->next = NULL;
-	new->content = data;
-	*element = new;
+	element->next = NULL;
+	element->content = data;
+	*new = element;
 	return (0);
 }
 
-int	add_front(t_malloc *element)
+int	add_front(void *content)
 {
 	t_malloc	*current;
 	t_malloc	**root;
+	t_malloc	*element;
 
+	if (create_element(&element, content))
+		return (1);
 	root = &(get_data(NULL)->garbage);
 	current = *root;
 	if (!current)
@@ -100,16 +101,16 @@ int	del_malloc(void *element)
 int	free_all()
 {
 	t_malloc	*current;
-	t_malloc	*last;
+	t_malloc	*tmp;
 	t_malloc	**root;
 
 	root = &(get_data(NULL)->garbage);
 	current = *root;
-	last = current;
-	while (last)
+	while (current)
 	{
-		last = current->next;
+		tmp = current->next;
 		free_node(current);
+		current = tmp;
 	}
 	*root = NULL;
 	return (0);

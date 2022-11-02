@@ -10,9 +10,14 @@ int ft_memset(void *dst, int c, size_t n)
 	return (0);
 }
 
-int ft_memcpy(void *src, void *dst, size_t len)
+int ft_memcpy(void *dst, void *src, size_t len)
 {
 	while (len--)
-		*((unsigned char *)dst++) = *((unsigned char *)src++);
+		*(unsigned char *)dst++ = *(unsigned char *)src++;
 	return (0);
+}
+
+int ft_bzero(void *dst, size_t size)
+{
+	return (ft_memset(dst, 0, size));
 }

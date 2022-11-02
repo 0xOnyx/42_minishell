@@ -8,4 +8,3 @@ t_data	*get_data(t_data *new_ptr)
 		addr = new_ptr;
 	return (addr);
 }
-

@@ -1,5 +1,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
+# define MAX_PROMPT 255
 
 #include "includers.h"
 
@@ -26,9 +27,11 @@ struct s_command
 {
 	char	*command;
 	char	**arguments;
-	int 	stdin;
-	int 	stdout;
-	int 	stderr;
+	int 	stdin[2];
+	int 	stdout[2];
+	int 	stderr[2];
+	int 	pid;
+	int 	last;
 };
 
 struct s_lexical
@@ -56,5 +59,6 @@ int 	del_env(char *str);
 int 	iter_env(size_t (*f)(char *, int));
 
 int 	minishell(void);
+int 	exec_command(void);
 
 #endif

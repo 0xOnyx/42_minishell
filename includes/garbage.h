@@ -8,8 +8,8 @@ struct s_malloc
 	struct s_malloc	*next;
 };
 
-int 	create_element(void *data);
-int 	add_front(t_malloc *element);
+int		create_element(t_malloc **new, void *data);
+int		add_front(void *content);
 int 	del_malloc(void *element);
 int 	free_all(void);
 
