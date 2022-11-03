@@ -83,6 +83,22 @@ static int get_cmd(char **command_path, char *cmd)
 	return (1);
 }
 
+static void	built_in(char *cmd)
+{
+	if (ft_strncmp(cmd, "pwd", 3) == 0)
+	{
+
+	}
+	else if (ft_strncmp(cmd, "echo"))
+	echo et l’option -n
+	◦ cd uniquement avec un chemin relatif ou absolu
+	◦ pwd sans aucune option
+	◦ export sans aucune option
+	◦ unset sans aucune option
+	◦ env sans aucune option ni argument
+	◦ exit sans aucune option
+}
+
 int	exec_command(void)
 {
 	int 		last_status;
@@ -109,7 +125,7 @@ int	exec_command(void)
 					perror("ERROR:");
 				del_malloc(command_path);
 			}
-			//built_in(command[i].command);
+			built_in(command[i].command);
 			exit(1);
 		}
 		if (command[i].last)
