@@ -17,8 +17,14 @@ int get_pwd(char **buff)
 	return (0);
 }
 
-int cd_fn(char *path)
+int cd_fn(t_command *command)
 {
+	char *path;
+
+	path = command->arguments[0];
+	if (!path)
+		return (1);
+	printf("value of path = >> %s\n", path);
 	if (chdir((const char *)path) < 0)
 		return (1);
 	return (0);

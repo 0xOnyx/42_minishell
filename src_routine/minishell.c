@@ -76,7 +76,7 @@ int 	minishell(void)
 		command = calloc(sizeof(t_command),10);
 		command[0].command = line;
 		command[0].arguments = calloc(sizeof(char **), 3);
-		command[0].arguments[0] = "-l";
+		command[0].arguments[0] = "/";
 		command[0].arguments[1] = NULL;
 		command[0].stdin[0] = 0;
 		command[0].stdout[1] = 1;

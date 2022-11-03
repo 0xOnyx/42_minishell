@@ -59,6 +59,9 @@ int		add_env(char *str);
 int 	del_env(char *str);
 int 	iter_env(size_t (*f)(char *, int));
 
+int		cd_fn(t_command *command);
+int		echo_cmd(t_command *command);
+
 int 	minishell(void);
 int 	exec_command(void);
 

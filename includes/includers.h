@@ -1,5 +1,6 @@
 #ifndef INCLUDERS_H
 # define INCLUDERS_H
+# define NAME "Minishell"
 
 # include <stdio.h>
 # include <readline/readline.h>

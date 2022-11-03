@@ -83,20 +83,61 @@ static int get_cmd(char **command_path, char *cmd)
 	return (1);
 }
 
-static void	built_in(char *cmd)
+static int	built_in_main(t_command *command)
 {
-	if (ft_strncmp(cmd, "pwd", 3) == 0)
-	{
+	char	*cmd;
+	char	*res;
 
+	cmd = command->command;
+	if (ft_strncmp(cmd, "export", 6) == 0)
+	{
+//		◦ export sans aucune option
+		return (1);
 	}
-	else if (ft_strncmp(cmd, "echo"))
-	echo et l’option -n
-	◦ cd uniquement avec un chemin relatif ou absolu
-	◦ pwd sans aucune option
-	◦ export sans aucune option
-	◦ unset sans aucune option
-	◦ env sans aucune option ni argument
-	◦ exit sans aucune option
+	else if (ft_strncmp(cmd, "unset", 5) == 0)
+	{
+//		◦ unset sans aucune option
+		return (1);
+	}
+	else if (ft_strncmp(cmd, "env", 3) == 0)
+	{
+//		◦ env sans aucune option ni argument
+		return (1);
+	}
+	else if (ft_strncmp(cmd, "cd", 2) == 0)
+	{
+		printf("cd command exce\n");
+		cd_fn(command);
+		return (1);
+	}
+	else if (ft_strncmp(cmd, "exit", 4) == 0)
+	{
+//	◦ exit sans aucune option
+		return (1);
+	}
+	return (0);
+}
+
+static int	built_in_fork(t_command *command)
+{
+	char	*cmd;
+	char	*res;
+
+	cmd = command->command;
+	if (ft_strncmp(cmd, "echo", 3) == 0)
+	{
+		//	echo et l’option -n
+		return (1);
+	}
+	else if (ft_strncmp(cmd, "pwd", 3) == 0)
+	{
+		printf("value of pwd => %s\n", cmd);
+		get_pwd(&res);
+		ft_putstr_fd(res, 1);
+		free(res);
+		return (1);
+	}
+	return (0);
 }
 
 int	exec_command(void)
@@ -112,20 +153,27 @@ int	exec_command(void)
 	command = data->command;
 	while (command[i].command)
 	{
-		command[i].pid = fork();
+		command[i].pid = 1;
+		if (!built_in_main(command))
+			command[i].pid = fork();
 		if (command[i].pid == 0)
 		{
+			printf("pid => %d\n", command[i].pid);
 			close_dup_in(command[i].stdin, 0);
 			close_dup_out(command[i].stdout, 1);
 			close_dup_out(command[i].stderr, 2);
+			if (!built_in_fork(command + i))
+				exit(1);
 			if (!get_cmd(&command_path, command[i].command))
 			{
-				printf("value1 => %s\n", command_path);
 				if (execve(command_path, command[i].arguments, data->env) == -1)
 					perror("ERROR:");
 				del_malloc(command_path);
+				ft_putstr_fd(NAME, 2);
+				ft_putstr_fd(": command not found:", 2);
+				ft_putstr_fd(command[i].command, 2);
+				ft_putstr_fd("\n", 2);
 			}
-			built_in(command[i].command);
 			exit(1);
 		}
 		if (command[i].last)
