@@ -68,6 +68,7 @@ t_malloc	*get_malloc(void *element)
 int	free_node(t_malloc *current)
 {
 	free(current->content);
+	current->content = NULL;
 	free(current);
 	return (0);
 }
@@ -79,6 +80,8 @@ int	del_malloc(void *element)
 	t_malloc	*tmp;
 	t_malloc	**root;
 
+	if (!element)
+		return (1);
 	root = &(get_data(NULL)->garbage);
 	pos = get_id_malloc(element);
 	current = *root;

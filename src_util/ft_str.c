@@ -79,3 +79,28 @@ size_t	ft_strlcat(char *dst, char *src, size_t max_len)
 	dst[len_dst] = 0;
 	return (res);
 }
+
+int	ft_strjoin(char **buff, char *a, char *b)
+{
+	size_t 	i;
+	size_t	len_max;
+
+	i = 0;
+	len_max = ft_strlen(a) + ft_strlen(b) + 1;
+	if (ft_calloc((void **)buff, len_max, sizeof(char)))
+		return (1);
+	if (ft_strlcat(*buff, a, len_max) > len_max
+		|| ft_strlcat(*buff, b, len_max + 1) > len_max)
+		return (1);
+	return (0);
+}
+
+void free_split(char **element)
+{
+	int i;
+
+	i = 0;
+	while (element[i])
+		del_malloc(element[i++]);
+	del_malloc(element);
+}

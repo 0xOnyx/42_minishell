@@ -13,6 +13,7 @@
 # include <sys/ioctl.h>
 # include <curses.h>
 # include <term.h>
+# include <errno.h>
 
 typedef struct s_type		t_type;
 typedef struct s_command	t_command;

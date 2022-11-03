@@ -74,18 +74,20 @@ int 	minishell(void)
 		//command = parse(line);
 		//TEST
 		command = calloc(sizeof(t_command),10);
-		command[0].command = "/bin/ls";
-		command[0].arguments = (char **){"ls", "-la", NULL};
+		command[0].command = line;
+		command[0].arguments = calloc(sizeof(char **), 3);
+		command[0].arguments[0] = "-l";
+		command[0].arguments[1] = NULL;
 		command[0].stdin[0] = 0;
 		command[0].stdout[1] = 1;
 		command[0].stderr[1] = 2;
 		command[0].last = 1;
+		command[0].status = 0;
 		command[1].command = NULL;
 		data->command = command;
+
 		if (exec_command())
 			perror("Error:");
-		del_malloc(command);
-		exit(1);
 	};
 	return (0);
 }

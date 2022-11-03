@@ -32,6 +32,7 @@ struct s_command
 	int 	stderr[2];
 	int 	pid;
 	int 	last;
+	int 	status;
 };
 
 struct s_lexical
