@@ -21,20 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/includers.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/includers.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_garbage/garbage.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_garbage/garbage.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_parser/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_parser/parser.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_routine/builtins.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_routine/builtins.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_routine/env.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_routine/env.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_routine/minishell.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_routine/minishell.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_routine/routine.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_routine/routine.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objs/src_util/get_data.o" beforeDir="false" afterPath="$PROJECT_DIR$/objs/src_util/get_data.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/builtins.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/exec_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +151,7 @@
       <workItem from="1667411322374" duration="19820000" />
       <workItem from="1667477132346" duration="4710000" />
       <workItem from="1667507023948" duration="10000" />
-      <workItem from="1667510826133" duration="6565000" />
+      <workItem from="1667510826133" duration="7325000" />
     </task>
     <servers />
   </component>
