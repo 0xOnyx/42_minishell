@@ -14,6 +14,6 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, char *src, size_t size);
 int 	ft_strjoin(char **buff, char *a, char *b);
 int		ft_split(char ***split, char *s, char c);
-void 	free_split(char **element);
+int 	free_split(char **element);
 
 #endif

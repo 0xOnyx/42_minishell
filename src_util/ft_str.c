@@ -95,7 +95,7 @@ int	ft_strjoin(char **buff, char *a, char *b)
 	return (0);
 }
 
-void free_split(char **element)
+int free_split(char **element)
 {
 	int i;
 
@@ -103,4 +103,5 @@ void free_split(char **element)
 	while (element[i])
 		del_malloc(element[i++]);
 	del_malloc(element);
+	return (1);
 }

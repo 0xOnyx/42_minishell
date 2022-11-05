@@ -6,13 +6,16 @@ https://www.geeksforgeeks.org/developing-linux-based-shell/
 
 
 
-1. “#” : IO
+1. “#” : IO          //NOT
+8. “&” : AMPERSAND   //NOT
+
+
+
 2. [ 1 ]?”>” : IO
 3. “” : IO
 5. [ 1]?”>>” : IO
-6. [ 1-2]”>&”[1-2 ] : IOR
+6. [ 1-2]”>&”[1-2 ] : IOR 1>&2
 7. “|” : PIPE
-8. “&” : AMPERSAND
 9. [ ]”-“[a-zA-Z0-9]* : OPTION
 10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
 11. \%\=\+\’\”\(\)\$\/\_\-\.\?\*\~a-zA-Z0-9]+ : WORD
