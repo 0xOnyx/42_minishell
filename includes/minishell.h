@@ -19,7 +19,6 @@ struct s_command
 
 struct s_data
 {
-	t_type		type[11];
 	t_command	*command;
 	t_malloc	*garbage;
 	char		**env;
@@ -39,7 +38,7 @@ int			echo_cmd(t_command *command);
 
 int			minishell(void);
 int			exec_command(void);
-t_command	*parser(char *str);
+int			parser(char *str);
 
 void		close_dup_in(int pipe[2], int fd);
 void		close_dup_out(int pipe[2], int fd);

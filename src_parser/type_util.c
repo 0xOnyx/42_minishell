@@ -21,34 +21,42 @@ static int	get_word_size(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (is_io(str) || is_pipe(str))
+		if (str[i] == ' ')
+			return (i + 1);
+		if (is_io(str + i) || is_pipe(str + i))
 			return (i);
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-int	get_type(t_lexical *type, char *str)
+int	get_type(t_lexical **type, char *str, int *i)
 {
 	int	value;
 
+	if (!(*str))
+	{
+		if (lex_add_back(type, 0, 0))
+			return (1);
+		return (0);
+	}
 	value = is_io(str);
 	if (value)
 	{
-		type->type = IO;
-		type->size = value;
+		if (lex_add_back(type, IO, value))
+			return (1);
 		return (0);
 	}
 	value = is_pipe(str);
-	if (!value)
+	if (value)
 	{
-		type->type = PIPE;
-		type->size = 1;
+		if (lex_add_back(type, PIPE, 1))
+			return (1);
 		return (0);
 	}
-	type->type = WORD;
-	type->size = get_word_size(str);
-	return (WORD);
+	if (lex_add_back(type, WORD, get_word_size(str)))
+		return (1);
+	return (0);
 }
 
 
