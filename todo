@@ -12,3 +12,4 @@ Ctrl+D is not a signal, it's EOF (End-Of-File). It closes the stdin pipe. If rea
 ctrl-\ ne fait rien.
 
 
+

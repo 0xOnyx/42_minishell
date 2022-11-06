@@ -2,20 +2,7 @@
 # define MINISHELL_H
 # define MAX_PROMPT 255
 
-#include "includers.h"
-
-enum 	e_type
-{
-	IO1,
-	IO2,
-	IO3,
-	IOR,
-	PIPE,
-	AMPERSAND,
-	OPTION,
-	OPTION2,
-	WORD
-};
+# include "includers.h"
 
 struct s_type
 {
@@ -27,12 +14,12 @@ struct s_command
 {
 	char	*command;
 	char	**arguments;
-	int 	stdin[2];
-	int 	stdout[2];
-	int 	stderr[2];
-	int 	pid;
-	int 	last;
-	int 	status;
+	int		stdin[2];
+	int		stdout[2];
+	int		stderr[2];
+	pid_t	pid;
+	int		last;
+	int		status;
 };
 
 struct s_lexical
@@ -50,19 +37,26 @@ struct s_data
 	char		**env;
 };
 
-void	safe_exit(void);
-int		echo_cmd(t_command *command);
-int 	get_pwd(char **buff);
+void		safe_exit(void);
+int			echo_cmd(t_command *command);
+int			get_pwd(char **buff);
 
-int		init_env(char **env);
-int		add_env(char *str);
-int 	del_env(char *str);
-int 	iter_env(size_t (*f)(char *, int));
+int			init_env(char **env);
+int			add_env(char *str);
+int			del_env(char *str);
+int			iter_env(size_t (*f)(char *, int));
 
-int		cd_fn(t_command *command);
-int		echo_cmd(t_command *command);
+int			cd_fn(t_command *command);
+int			echo_cmd(t_command *command);
 
-int 	minishell(void);
-int 	exec_command(void);
+int			minishell(void);
+int			exec_command(void);
+t_command	*parser(char *str);
+
+void		close_dup_in(int pipe[2], int fd);
+void		close_dup_out(int pipe[2], int fd);
+int			wait_process(int last_max);
+int			get_path(char **path);
+int			get_cmd(char **command_path, char *cmd);
 
 #endif

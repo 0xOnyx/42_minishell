@@ -9,7 +9,6 @@ int	lexical_analyser(char *str)
 		return (1);
 	while (!str)
 	{
-		//if (is_in_charset("#"  t))
 		i++;
 	}
 	return (0);
@@ -22,4 +21,3 @@ int	parser(t_data *data, char *str)
 		return (1);
 	return (0);
 }
-

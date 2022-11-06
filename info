@@ -20,3 +20,18 @@ https://www.geeksforgeeks.org/developing-linux-based-shell/
 10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
 11. \%\=\+\’\”\(\)\$\/\_\-\.\?\*\~a-zA-Z0-9]+ : WORD
 
+< test>out
+IO
+
+              ptr1  ptr2   ptr3
+             |     |      |
+char *str=  "saltu\0sa\0  va\0"
+
+<test>out
+
+>
+>>
+<
+<<
+
+
