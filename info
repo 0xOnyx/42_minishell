@@ -8,17 +8,46 @@ https://www.geeksforgeeks.org/developing-linux-based-shell/
 
 1. “#” : IO          //NOT
 8. “&” : AMPERSAND   //NOT
+9. [ ]”-“[a-zA-Z0-9]* : OPTION
+10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
+6. [ 1-2]”>&”[1-2 ] : IOR 1>&2
 
 
 
 2. [ 1 ]?”>” : IO
 3. “” : IO
 5. [ 1]?”>>” : IO
-6. [ 1-2]”>&”[1-2 ] : IOR 1>&2
 7. “|” : PIPE
-9. [ ]”-“[a-zA-Z0-9]* : OPTION
-10. [ ]”–“[a-zA-Z=a-zA-Z]* : OPTION2
 11. \%\=\+\’\”\(\)\$\/\_\-\.\?\*\~a-zA-Z0-9]+ : WORD
+
+WORD WORD
+grep a
+
+
+ETAPE 1
+WORD WORD PIPE
+ls   a    |
+
+ETAPE 2
+CMD ARG |
+ls
+
+WORD
+"l""s"
+
+"< test >> out"
+IO WORD IO WORD
+1   6   2   4
+
+WORD   WORD
+grep   "salut s s s "
+grep    salut s s s
+
+1          2       3    4
+{<} {test ls -la} {>} {out}
+
+iO  WORD    OPTION  PIPE  OPTION    IO   WORD
+{<} {test}  {ls}    {|}   {-la}     {>}  {out}
 
 < test>out
 IO

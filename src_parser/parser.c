@@ -14,10 +14,15 @@ int	lexical_analyser(char *str)
 	return (0);
 }
 
-int	parser(t_data *data, char *str)
+//TODO Write a function that associate a charset to a type
+t_command	*parser(char *str)
 {
-	(void)data;
+	t_data		*data;
+	t_command	*command;
+	char		**test
+
+	data = get_data(NULL);
 	if (lexical_analyser(str))
-		return (1);
-	return (0);
+		return (NULL);
+	return (command);
 }

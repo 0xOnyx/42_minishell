@@ -1,6 +1,5 @@
 #include "includers.h"
 
-
 static int	get_prompt(char buff[MAX_PROMPT])
 {
 	char	*content_prompt[25];
@@ -28,24 +27,31 @@ static int	get_prompt(char buff[MAX_PROMPT])
 
 static int	prompt(char **line)
 {
-	char 	buff[MAX_PROMPT];
+	char	buff[MAX_PROMPT];
+	char	*current_line;
 
-	char 	*current_line;
 	ft_bzero(buff, MAX_PROMPT);
 	if (get_prompt(buff))
 		return (1);
 	current_line = readline(buff);
 	if (!current_line)
 		return (1);
-	if (current_line && *current_line)
+	if (*current_line)
 		add_history(current_line);
 	*line = current_line;
 	return (0);
 }
 
-static int kill_current_process(void)
+static int	kill_current_process(void)
 {
-	//kill();
+	t_command	*command;
+
+	command = get_data(NULL)->command;
+	while (command->pid > 0)
+	{
+		kill(command->pid, SIGINT);
+		command++;
+	}
 	return (0);
 }
 
@@ -53,6 +59,7 @@ static void	exit_handler(int sign)
 {
 	if (sign == SIGINT || sign == SIGQUIT)
 	{
+		kill_current_process();
 		write(2, "\n", 1);
 		rl_replace_line("", 0);
 		rl_on_new_line();
@@ -71,9 +78,9 @@ int 	minishell(void)
 	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
-		//command = parse(line);
+		command = parser(line);
 		//TEST
-		command = calloc(sizeof(t_command),10);
+	/*	command = calloc(sizeof(t_command),10);
 		command[0].command = line;
 		command[0].arguments = calloc(sizeof(char **), 3);
 		command[0].arguments[0] = "/";
@@ -87,7 +94,7 @@ int 	minishell(void)
 		data->command = command;
 
 		if (exec_command())
-			perror("Error:");
+			perror("Error:");*/
 	};
 	return (0);
 }

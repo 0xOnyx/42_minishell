@@ -9,15 +9,15 @@ void	safe_exit(void)
 	exit(0);
 }
 
-int get_pwd(char **buff)
+int	get_pwd(char **buff)
 {
 	if (ft_malloc((void **)buff, 255)
-		||  !getcwd(*buff, 255))
+		|| !getcwd(*buff, 255))
 		return (1);
 	return (0);
 }
 
-int cd_fn(t_command *command)
+int	cd_fn(t_command *command)
 {
 	char *path;
 
@@ -30,7 +30,7 @@ int cd_fn(t_command *command)
 	return (0);
 }
 
-int echo_cmd(t_command *command)
+int	echo_cmd(t_command *command)
 {
 	int		option;
 

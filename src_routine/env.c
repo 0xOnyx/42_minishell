@@ -42,13 +42,13 @@ int add_env(char *str)
 int del_env(char *str)
 {
 	t_data	*data;
-	char 	**last;
+	char	**last;
 	int		pos_del;
-	int 	i;
-	int 	y;
+	int		i;
+	int		y;
 	size_t	len;
 
-	i  = 0;
+	i = 0;
 	y = 0;
 	pos_del = 0;
 	len = ft_strlen(str);
@@ -70,7 +70,7 @@ int del_env(char *str)
 	return (0);
 }
 
-int iter_env(size_t (*f)(char *, int))
+int	iter_env(size_t (*f)(char *, int))
 {
 	char	**current;
 	t_data	*data;

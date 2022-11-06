@@ -19,8 +19,8 @@ PATH_UTIL			= src_util/
 PATH_OBJ			= objs/
 
 HEADER				= minishell.h utils.h garbage.h
-SRC_PARSER			= parser.c
-SRC_ROUTINE			= routine.c env.c builtins.c minishell.c exec_command.c
+SRC_PARSER			= parser.c type_util.c
+SRC_ROUTINE			= routine.c env.c builtins.c minishell.c exec_command.c exec_command_utils.c
 SRC_GARBAGE			= garbage.c malloc.c
 SRC_UTIL			= ft_mem.c ft_str.c get_data.c ft_split.c
 

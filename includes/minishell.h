@@ -4,11 +4,6 @@
 
 # include "includers.h"
 
-struct s_type
-{
-	char 		*charset;
-	enum e_type	type;
-};
 
 struct s_command
 {
@@ -20,13 +15,6 @@ struct s_command
 	pid_t	pid;
 	int		last;
 	int		status;
-};
-
-struct s_lexical
-{
-	enum e_type			type;
-	char				*str;
-	struct s_lexical	*next;
 };
 
 struct s_data
