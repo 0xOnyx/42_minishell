@@ -14,3 +14,16 @@ ctrl-\ ne fait rien.
 
 
 Create function that associate a charset to a given type
+
+
+ls -l > echo | echo "OK"
+ls -l>echo|echo "OK"
+
+ls
+-l
+-a
+>
+echo
+|
+echo
+"OK"

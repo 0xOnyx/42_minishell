@@ -67,9 +67,12 @@ t_malloc	*get_malloc(void *element)
 
 int	free_node(t_malloc *current)
 {
-	free(current->content);
+	if (current->content)
+		free(current->content);
 	current->content = NULL;
-	free(current);
+	if (current)
+		free(current);
+	current = NULL;
 	return (0);
 }
 
@@ -101,7 +104,7 @@ int	del_malloc(void *element)
 	return (0);
 }
 
-int	free_all()
+int	free_all(void)
 {
 	t_malloc	*current;
 	t_malloc	*tmp;

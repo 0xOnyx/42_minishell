@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "parser.h"
 
 int	lexical_analyser(char *str)
 {

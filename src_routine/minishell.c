@@ -47,7 +47,7 @@ static int	kill_current_process(void)
 	t_command	*command;
 
 	command = get_data(NULL)->command;
-	while (command->pid > 0)
+	while (command && command->pid > 0)
 	{
 		kill(command->pid, SIGINT);
 		command++;
@@ -67,9 +67,8 @@ static void	exit_handler(int sign)
 	}
 }
 
-int 	minishell(void)
+int	minishell(void)
 {
-	t_command	*command;
 	t_data		*data;
 	char		*line;
 
@@ -78,23 +77,10 @@ int 	minishell(void)
 	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
-		command = parser(line);
-		//TEST
-	/*	command = calloc(sizeof(t_command),10);
-		command[0].command = line;
-		command[0].arguments = calloc(sizeof(char **), 3);
-		command[0].arguments[0] = "/";
-		command[0].arguments[1] = NULL;
-		command[0].stdin[0] = 0;
-		command[0].stdout[1] = 1;
-		command[0].stderr[1] = 2;
-		command[0].last = 1;
-		command[0].status = 0;
-		command[1].command = NULL;
-		data->command = command;
-
-		if (exec_command())
-			perror("Error:");*/
-	};
+		if (parser(line) || !data->command)
+			ft_putstr_fd("Error: Command", 2);
+		else if (exec_command())
+			perror("Error:");
+	}
 	return (0);
 }

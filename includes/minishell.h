@@ -42,7 +42,7 @@ int			parser(char *str);
 
 void		close_dup_in(int pipe[2], int fd);
 void		close_dup_out(int pipe[2], int fd);
-int			wait_process(int last_max);
+int			wait_process(void);
 int			get_path(char **path);
 int			get_cmd(char **command_path, char *cmd);
 

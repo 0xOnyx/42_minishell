@@ -35,6 +35,9 @@ int	echo_cmd(t_command *command)
 	int		option;
 
 	option = 0;
+	command->arguments++;
+	if (!*command->arguments)
+		return (1);
 	if (ft_strncmp(*command->arguments, "-n", 2) == 0)
 	{
 		command->arguments++;

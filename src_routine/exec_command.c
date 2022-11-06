@@ -9,7 +9,7 @@ static int	built_in_main(t_command *command)
 	cmd = command->command;
 	if (ft_strncmp(cmd, "export", 6) == 0)
 	{
-//		◦ export sans aucune option
+
 		return (1);
 	}
 	else if (ft_strncmp(cmd, "unset", 5) == 0)
@@ -44,15 +44,15 @@ static int	built_in_fork(t_command *command)
 	cmd = command->command;
 	if (ft_strncmp(cmd, "echo", 3) == 0)
 	{
-		//	echo et l’option -n
+		echo_cmd(command);
 		return (1);
 	}
 	else if (ft_strncmp(cmd, "pwd", 3) == 0)
 	{
-		printf("value of pwd => %s\n", cmd);
 		get_pwd(&res);
 		ft_putstr_fd(res, 1);
-		free(res);
+		ft_putstr_fd("\n", 1);
+		del_malloc(res);
 		return (1);
 	}
 	return (0);
@@ -79,7 +79,7 @@ int	exec_command(void)
 			close_dup_in(command[i].stdin, 0);
 			close_dup_out(command[i].stdout, 1);
 			close_dup_out(command[i].stderr, 2);
-			if (!built_in_fork(command + i))
+			if (built_in_fork(command + i))
 				exit(1);
 			if (!get_cmd(&command_path, command[i].command))
 			{
@@ -95,7 +95,7 @@ int	exec_command(void)
 		}
 		if (command[i].last)
 		{
-			last_status = wait_process(i);
+			last_status = wait_process();
 			if (command[i + 1].command
 				&& command[i + 1].status >= 0
 				&& command[i + 1].status != last_status)
@@ -103,5 +103,6 @@ int	exec_command(void)
 		}
 		i++;
 	}
+	wait_process();
 	return (0);
 }
