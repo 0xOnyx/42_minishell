@@ -15,6 +15,7 @@
 # include <curses.h>
 # include <term.h>
 # include <errno.h>
+# include <fcntl.h>
 
 typedef struct s_command	t_command;
 typedef struct s_lexical	t_lexical;

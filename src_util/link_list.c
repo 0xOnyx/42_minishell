@@ -1,32 +1,33 @@
 #include "parser.h"
 
-int	create_lexical(t_lexical **lexical, enum e_type type, int size)
+int	create_lexical(t_lexical **lexical, enum e_type type, int size, char *content)
 {
 	if (ft_calloc((void **)lexical, sizeof(t_lexical), 1))
 		return (1);
 	(*lexical)->type = type;
 	(*lexical)->size = size;
+	(*lexical)->content = content;
 	(*lexical)->next = NULL;
 	return (0);
 }
 
-int	lex_add_front(t_lexical **root, enum e_type type, int size)
-{
-	t_lexical	*new;
+//int	lex_add_front(t_lexical **root, enum e_type type, int size)
+//{
+//	t_lexical	*new;
+//
+//	if (create_lexical(&new, type, size))
+//		return (1);
+//	new->next = *root;
+//	*root = new;
+//	return (0);
+//}
 
-	if (create_lexical(&new, type, size))
-		return (1);
-	new->next = *root;
-	*root = new;
-	return (0);
-}
-
-int	lex_add_back(t_lexical **root, enum e_type type, int size)
+int	lex_add_back(t_lexical **root, enum e_type type, int size, char *content)
 {
 	t_lexical	*new;
 	t_lexical	*current;
 
-	if (create_lexical(&new, type, size))
+	if (create_lexical(&new, type, size, content))
 		return (1);
 	if (!*root)
 		*root = new;

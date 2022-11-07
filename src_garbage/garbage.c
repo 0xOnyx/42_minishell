@@ -25,7 +25,7 @@ int	add_front(void *content)
 	current = *root;
 	if (!current)
 	{
-		*root  = element;
+		*root = element;
 		return (0);
 	}
 	while (current->next)

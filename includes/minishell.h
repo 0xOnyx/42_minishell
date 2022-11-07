@@ -27,14 +27,18 @@ struct s_data
 void		safe_exit(void);
 int			echo_cmd(t_command *command);
 int			get_pwd(char **buff);
+int			get_git(char **res);
 
 int			init_env(char **env);
 int			add_env(char *str);
 int			del_env(char *str);
-int			iter_env(size_t (*f)(char *, int));
+int			iter_env(int (*f)(char *, int));
 
 int			cd_fn(t_command *command);
 int			echo_cmd(t_command *command);
+int			unset_cmd(t_command *command);
+int			export_cmd(t_command *command);
+int			print_env(void);
 
 int			minishell(void);
 int			exec_command(void);
@@ -45,5 +49,6 @@ void		close_dup_out(int pipe[2], int fd);
 int			wait_process(void);
 int			get_path(char **path);
 int			get_cmd(char **command_path, char *cmd);
+
 
 #endif

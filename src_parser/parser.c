@@ -16,26 +16,35 @@ int	lexical_analyser(char *str)
 
 int	get_lexical(t_lexical **lst_head, char *str)
 {
-	t_lexical	*head;
 	t_lexical	*nodes;
-	int			end;
 	int			cnt;
+	int			err;
 
-	end = 0;
 	nodes = NULL;
 	*lst_head = nodes;
-	get_type(&nodes, str, &end);
+	cnt = 0;
+	while (*(str + cnt) == ' ')
+		cnt++;
+	err = get_type(&nodes, str + cnt);
+	if (err)
+		return (1);
+	printf("{%s}\n", nodes->content);
 	cnt = nodes->size;
 	while (nodes->size)
 	{
 		if (*(str + cnt) != ' ')
 		{
 			nodes = nodes->next;
-			get_type(&nodes, str + cnt, &cnt);
+			err = get_type(&nodes, str + cnt);
+			printf("{%s}\n", nodes->content);
+			if (err)
+				return (1);
 			cnt += nodes->size;
 		}
 		else
+		{
 			cnt++;
+		}
 	}
 	return (0);
 }
@@ -50,17 +59,18 @@ int	parser(char *str)
 	head = NULL;
 	cmd = NULL;
 	data = get_data(NULL);
-	get_lexical(&head, str);
+	if (get_lexical(&head, str))
+		return (1);
 	if (lexical_analyser(str))
 		return (1);
 	//TODO CREATE REAL COMMAND IS ONLY FOR TEST +>
-//	cmd = calloc(sizeof(t_command), 2);
-//	cmd[0].command = "echo";
-//	cmd[0].arguments = calloc(sizeof(char *), 3);
-//	cmd[0].arguments[0] = "echo";
-//	cmd[0].arguments[1] = "HELLO WORLD";
-//	cmd[0].arguments[2] = NULL;
-//	cmd[1].command = NULL;
-//	data->command = cmd;
+	cmd = calloc(sizeof(t_command), 2);
+	cmd[0].command = "cd";
+	cmd[0].arguments = calloc(sizeof(char *), 4);
+	cmd[0].arguments[0] = "cd";
+	cmd[0].arguments[1] = "..";
+	cmd[0].arguments[2] = NULL;
+	cmd[1].command = NULL;
+	data->command = cmd;
 	return (0);
 }

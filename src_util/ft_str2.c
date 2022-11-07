@@ -45,3 +45,19 @@ int	free_split(char **element)
 	del_malloc(element);
 	return (1);
 }
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*res;
+	size_t	min;
+	size_t	max;
+
+	min = 0;
+	while (is_in_charset(s1[min], set) && s1[min] != '\0')
+		min++;
+	max = ft_strlen(s1);
+	while (is_in_charset(s1[max - 1], set) && max - 1 > 0)
+		max--;
+	res = ft_substr(s1, min, max - min);
+	return (res);
+}

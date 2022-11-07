@@ -4,35 +4,18 @@
 static int	built_in_main(t_command *command)
 {
 	char	*cmd;
-	char	*res;
 
 	cmd = command->command;
 	if (ft_strncmp(cmd, "export", 6) == 0)
-	{
-
-		return (1);
-	}
+		return (!export_cmd(command));
 	else if (ft_strncmp(cmd, "unset", 5) == 0)
-	{
-//		◦ unset sans aucune option
-		return (1);
-	}
+		return (!unset_cmd(command));
 	else if (ft_strncmp(cmd, "env", 3) == 0)
-	{
-//		◦ env sans aucune option ni argument
-		return (1);
-	}
+		return (!print_env());
 	else if (ft_strncmp(cmd, "cd", 2) == 0)
-	{
-		printf("cd command exce\n");
-		cd_fn(command);
-		return (1);
-	}
+		return (!cd_fn(command));
 	else if (ft_strncmp(cmd, "exit", 4) == 0)
-	{
-//	◦ exit sans aucune option
-		return (1);
-	}
+		exit(free_all());
 	return (0);
 }
 
@@ -43,10 +26,7 @@ static int	built_in_fork(t_command *command)
 
 	cmd = command->command;
 	if (ft_strncmp(cmd, "echo", 3) == 0)
-	{
-		echo_cmd(command);
-		return (1);
-	}
+		return (!echo_cmd(command));
 	else if (ft_strncmp(cmd, "pwd", 3) == 0)
 	{
 		get_pwd(&res);
@@ -76,6 +56,7 @@ int	exec_command(void)
 			command[i].pid = fork();
 		if (command[i].pid == 0)
 		{
+			printf("fork\n");
 			close_dup_in(command[i].stdin, 0);
 			close_dup_out(command[i].stdout, 1);
 			close_dup_out(command[i].stderr, 2);

@@ -17,9 +17,9 @@ int	init_env(char **env)
 			return (1);
 	}
 	return (0);
- }
+}
 
-int add_env(char *str)
+int	add_env(char *str)
 {
 	int		i;
 	t_data	*data;
@@ -39,26 +39,24 @@ int add_env(char *str)
 	return (0);
 }
 
-int del_env(char *str)
+int	del_env(char *str)
 {
 	t_data	*data;
 	char	**last;
 	int		pos_del;
 	int		i;
 	int		y;
-	size_t	len;
 
 	i = 0;
 	y = 0;
 	pos_del = 0;
-	len = ft_strlen(str);
 	data = get_data(NULL);
-	while (data->env[pos_del] && ft_strncmp(data->env[pos_del], str, len))
+	while (data->env[pos_del] && ft_strncmp(data->env[pos_del], str, ft_strlen(str)))
 		pos_del++;
 	if (!data->env[pos_del])
 		return (1);
 	last = data->env;
-	if (ft_calloc((void **)&data->env, sizeof(char *), --len) )
+	if (ft_calloc((void **)&data->env, sizeof(char *), ft_strlen(str) - 1))
 		return (1);
 	while (last[y])
 	{
@@ -70,18 +68,42 @@ int del_env(char *str)
 	return (0);
 }
 
-int	iter_env(size_t (*f)(char *, int))
+
+int	iter_env(int (*f)(char *, int))
 {
 	char	**current;
 	t_data	*data;
+	int		i;
 
+	i = 0;
 	data = get_data(NULL);
 	current = data->env;
-	while (current)
+	while (current[i])
 	{
-		if (f(*current, 1) < 0)
+		if (f(current[i], i) == 0)
 			return (1);
-		current++;
+		i++;
 	}
 	return (0);
+}
+
+int	get_env(char **res, char *name)
+{
+	char	**current;
+	t_data	*data;
+	size_t 	len;
+
+	len = ft_strlen(name);
+	data = get_data(NULL);
+	current = data->env;
+	while (*current)
+	{
+		if (strncmp(*current, name, len) == 0)
+		{
+			*res = *current;
+			return (0);
+		}
+		current++;
+	}
+	return (1);
 }

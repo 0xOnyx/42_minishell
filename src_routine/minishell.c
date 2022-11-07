@@ -7,20 +7,25 @@ static int	get_prompt(char buff[MAX_PROMPT])
 
 	i = 0;
 	ft_bzero(content_prompt, sizeof(char *) * 25);
-	if (ft_strdup(&content_prompt[0], "\xF0\x9F\x94\xA5\x1b[91m ")
-		|| ft_strdup(&content_prompt[1], "MINISHELL")
-		|| ft_strdup(&content_prompt[2], " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ")
-		|| ft_strdup(&content_prompt[3], "\x1b[32m[\x1b[97m ")
-		|| get_pwd(&content_prompt[4])
-		|| ft_strdup(&content_prompt[5], " \x1b[32m]\x1b[97m")
-		|| ft_strdup(&content_prompt[6], " $ "))
-		return (1);
+	ft_strdup(&content_prompt[i++], "\xF0\x9F\x94\xA5\x1b[91m ");
+	ft_strdup(&content_prompt[i++], "MINISHELL");
+	ft_strdup(&content_prompt[i++], " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ");
+	ft_strdup(&content_prompt[i++], "\x1b[32m[\x1b[97m ");
+	get_pwd(&content_prompt[i++]);
+	ft_strdup(&content_prompt[i++], " \x1b[32m]\x1b[97m");
+	if (!get_git(&content_prompt[i + 1]))
+	{
+		ft_strdup(&content_prompt[i], "\x1b[32m[\x1b[96m ");
+		ft_strdup(&content_prompt[i + 2], " \x1b[32m]\x1b[97m");
+		i += 3;
+	}
+	ft_strdup(&content_prompt[i], " $ ");
+	i = 0;
 	while (content_prompt[i])
 	{
 		if (ft_strlcat(buff, content_prompt[i], MAX_PROMPT) > MAX_PROMPT)
 			return (1);
-		del_malloc(content_prompt[i]);
-		i++;
+		del_malloc(content_prompt[i++]);
 	}
 	return (0);
 }
@@ -78,7 +83,7 @@ int	minishell(void)
 	while (!prompt(&line))
 	{
 		if (parser(line) || !data->command)
-			ft_putstr_fd("Error: Command", 2);
+			ft_putstr_fd("Error: Command\n", 2);
 		else if (exec_command())
 			perror("Error:");
 	}

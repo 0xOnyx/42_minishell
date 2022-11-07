@@ -22,7 +22,7 @@ HEADER				= minishell.h utils.h garbage.h
 SRC_PARSER			= parser.c type_util.c
 SRC_ROUTINE			= routine.c env.c builtins.c minishell.c exec_command.c exec_command_utils.c
 SRC_GARBAGE			= garbage.c malloc.c
-SRC_UTIL			= ft_mem.c ft_str1.c ft_str2.c get_data.c ft_split.c link_list.c
+SRC_UTIL			= ft_mem.c ft_str1.c ft_str2.c ft_str3.c get_data.c ft_split.c link_list.c github.c
 
 SRC_PARSERS			= $(addprefix $(PATH_PARSER),$(SRC_PARSER))
 SRC_ROUTINES		= $(addprefix $(PATH_ROUTINE),$(SRC_ROUTINE))
@@ -65,7 +65,7 @@ $(PATH_OBJ)$(PATH_UTIL)%.o		: $(PATH_UTIL)%.c $(HEADERS)
 all			: $(NAME)
 
 $(NAME)		: $(OBJS)
-	@$(CC) $(CFLAGS) $(OPTIONS) $(LIBS) -o $(@) $(^)
+	@$(CC) $(CFLAGS) $(OPTIONS) $(LIBS) -o $(@)  $(LIBS) $(^)
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] LINKAGE $(COLOR_BOLD)ALL OBJS FILE =>\n\t $(COLOR_WHITE)$(^:.o=.o\n\t)"
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION FINISH !"
 

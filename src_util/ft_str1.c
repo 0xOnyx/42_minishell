@@ -29,7 +29,7 @@ int	is_in_charset(char c, const char *charset)
 	while (charset[i])
 	{
 		if (charset[i] == c)
-			return (i);
+			return (1);
 		i++;
 	}
 	return (0);
