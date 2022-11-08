@@ -20,22 +20,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 5 nov 22">
+    <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 8 nov 22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_parser/type_util.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/type_util.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str3.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str3.c" afterDir="false" />
     </list>
-    <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="WTF">
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/builtins.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/exec_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command.c" afterDir="false" />
+    <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv">
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_garbage/garbage.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_garbage/garbage.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,47 +50,6 @@
     <setting file="file://$PROJECT_DIR$/src_routine/builtins.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src_routine/env.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src_routine/routine.c" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src_parser/parser.c">
-      <ranges>
-        <range start1="15" end1="15" start2="15" end2="25" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="18" end1="19" start2="28" end2="28" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="22" end1="24" start2="31" end2="32" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="27" end1="28" start2="35" end2="36" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="30" end1="33" start2="38" end2="40" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="36" end1="39" start2="43" end2="44" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="41" end1="42" start2="46" end2="47" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="44" end1="45" start2="49" end2="49" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="46" end1="47" start2="50" end2="50" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="48" end1="48" start2="51" end2="54" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="50" end1="50" start2="56" end2="101" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="63" end1="63" start2="114" end2="117" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="67" end1="68" start2="121" end2="122" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="69" end1="72" start2="123" end2="124" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src_routine/env.c">
-      <ranges>
-        <range start1="20" end1="20" start2="20" end2="70" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="24" end1="24" start2="74" end2="76" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="26" end1="27" start2="78" end2="79" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="28" end1="32" start2="80" end2="88" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="35" end1="37" start2="91" end2="93" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="38" end1="38" start2="94" end2="96" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="69" end1="70" start2="127" end2="127" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="91" end1="91" start2="148" end2="149" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="93" end1="94" start2="151" end2="152" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="102" end1="103" start2="160" end2="163" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/includes/minishell.h">
-      <ranges>
-        <range start1="24" end1="24" start2="24" end2="25" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="41" end1="41" start2="42" end2="43" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="51" end1="52" start2="53" end2="53" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-      </ranges>
-    </file>
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -235,7 +185,7 @@
       <workItem from="1667834949932" duration="4980000" />
       <workItem from="1667842809367" duration="15316000" />
       <workItem from="1667923017702" duration="1245000" />
-      <workItem from="1667931553715" duration="11987000" />
+      <workItem from="1667931553715" duration="15506000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
@@ -265,7 +215,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667774096450</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="save 8 nov 22">
+      <created>1667943662410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667943662410</updated>
+    </task>
+    <task id="LOCAL-00006" summary="jerdos 8 nv">
+      <created>1667943678279</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667943678279</updated>
+    </task>
+    <task id="LOCAL-00007" summary="save 8 nov 22">
+      <created>1667943687388</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667943687388</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,25 +257,17 @@
     <MESSAGE value="Changes by jerdos-s" />
     <MESSAGE value="save 5 nov 22" />
     <MESSAGE value="WTF" />
-    <option name="LAST_COMMIT_MESSAGE" value="WTF" />
+    <MESSAGE value="jerdos 8 nv" />
+    <MESSAGE value="save 8 nov 22" />
+    <option name="LAST_COMMIT_MESSAGE" value="save 8 nov 22" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src_routine/builtins.c</url>
-          <line>12</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_routine/builtins.c</url>
           <line>99</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_util/ft_str3.c</url>
-          <line>65</line>
-          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

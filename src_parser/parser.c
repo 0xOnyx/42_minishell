@@ -62,7 +62,7 @@ int	get_next_space(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == ' ')
+		if (is_in_charset(str[i], " \"'$"))
 			break ;
 		i++;
 	}
@@ -73,24 +73,27 @@ int	parse_dquote(t_lexical *lst_head)
 {
 	int			i;
 	int			j;
-	t_lexical	*nodes;
-	t_data		*data;
 	char		*tmp;
+	int			is_in_dquote;
 
-	data = get_data(NULL);
 	j = 0;
+	is_in_dquote = 0;
 	while (lst_head->content)
 	{
 		i = 0;
 		while (lst_head->content[i])
 		{
-			if (lst_head->content[i] == '$')
+			if (lst_head->content[i] == '"' && !is_in_dquote)
+				is_in_dquote = 1;
+			if (lst_head->content[i] == '"' && is_in_dquote)
+				is_in_dquote = 0;
+			if (lst_head->content[i] == '$' && is_in_dquote)
 			{
 				get_env(&tmp, ft_substr(lst_head->content, i + \
-				1, i - get_next_space(lst_head->content + i)));
+				1, get_next_space(lst_head->content + i + 1)));
 				lst_head->content = ft_str_include(\
-				lst_head->content, tmp, i, \
-				get_next_space(lst_head->content + i) - i);
+				lst_head->content, tmp, i - 1, \
+				get_next_space(lst_head->content + i + 1) + 2);
 			}
 			i++;
 		}
@@ -113,8 +116,8 @@ int	parser(char *str)
 	if (get_lexical(&head, str))
 		return (1);
 	printlex(head);
-	//parse_dquote(head);
-	//printlex(head);
+	parse_dquote(head);
+	printlex(head);
 	if (lexical_analyser(str))
 		return (1);
 	//TODO CREATE REAL COMMAND IS ONLY FOR TEST +>
