@@ -56,23 +56,55 @@ int print_env(void)
 {
 	char	**env;
 	t_data	*data;
+	int		i;
 
+	i = 0;
 	data = get_data(NULL);
 	env = data->env;
-	while (*env++)
+	while (*env)
 	{
-		//TODO: FINISH THE shit
+		while (is_in_charset(*env[i], "="))
+			i++;
+		if (*env[i] != '\0')
+		{
+			ft_putstr_fd(*env, 1);
+			ft_putstr_fd("\n", 1);
+		}
+		env++;
 	}
 	return (0);
 }
 
-//TODO: create export print function check is require to sort element
+int	get_len(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 int	print_export(void)
 {
+	int		i;
+	int		len;
+	char	**real_env;
+	char	**new_env;
 
-	//TODO : ADD QUICKSORT
-	//	quicksort();
-
+	real_env = get_data(NULL)->env;
+	len = get_len(real_env);
+	if (ft_calloc((void **)&new_env, sizeof(char *), len))
+		return (1);
+	ft_memcpy((void *)new_env, (void *)real_env, sizeof(char **) * len);
+	quicksort(new_env, 0, len - 1);
+	i = 0;
+	while (i < len)
+	{
+		printf("%s\n", new_env[i]);
+		i++;
+	}
+	del_malloc(new_env);
 	return (0);
 }
 

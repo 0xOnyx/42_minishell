@@ -22,6 +22,7 @@ struct s_data
 	t_command	*command;
 	t_malloc	*garbage;
 	char		**env;
+	int			status;
 };
 
 void		safe_exit(void);
@@ -50,6 +51,5 @@ void		close_dup_out(int pipe[2], int fd);
 int			wait_process(void);
 int			get_path(char **path);
 int			get_cmd(char **command_path, char *cmd);
-
 
 #endif

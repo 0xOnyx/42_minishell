@@ -17,5 +17,9 @@ int		ft_split(char ***split, char *s, char c);
 int		free_split(char **element);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
+int		ft_strchr(char **res, char *str, char c);
+int		ft_strccmp(char *a, char *b, char c);
+int		quicksort(char **str, int lo, int hi);
+char	*ft_str_include(char *src, char *include, int pos, int skip);
 
 #endif

@@ -40,7 +40,6 @@ static int	built_in_fork(t_command *command)
 
 int	exec_command(void)
 {
-	int			last_status;
 	int			i;
 	t_data		*data;
 	t_command	*command;
@@ -54,6 +53,8 @@ int	exec_command(void)
 		command[i].pid = -1;
 		if (!built_in_main(command))
 			command[i].pid = fork();
+		else
+			data->status = 0;
 		if (command[i].pid == 0)
 		{
 			printf("fork\n");
@@ -76,14 +77,14 @@ int	exec_command(void)
 		}
 		if (command[i].last)
 		{
-			last_status = wait_process();
+			data->status = wait_process();
 			if (command[i + 1].command
 				&& command[i + 1].status >= 0
-				&& command[i + 1].status != last_status)
+				&& command[i + 1].status != data->status)
 				return (1);
 		}
 		i++;
 	}
-	wait_process();
+	data->status = wait_process();
 	return (0);
 }

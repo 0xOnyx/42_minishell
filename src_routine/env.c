@@ -19,23 +19,81 @@ int	init_env(char **env)
 	return (0);
 }
 
+static int	get_pos_env(char ***res, char *name)
+{
+	char	**current;
+	t_data	*data;
+	size_t	len;
+
+	len = ft_strlen(name);
+	data = get_data(NULL);
+	current = data->env;
+	while (*current)
+	{
+		if (strncmp(*current, name, len) == 0)
+		{
+			*res = current;
+			return (0);
+		}
+		current++;
+	}
+	return (1);
+}
+
+static int	is_current_env(char *str)
+{
+	char	*current;
+	char	**tmp;
+	char	*res;
+	int		i;
+	int		y;
+
+	i = 0;
+	while (is_in_charset(str[i], "="))
+		i++;
+	current = ft_substr(str, 0, i - 1);
+	if (get_pos_env(&tmp, current))
+		return (0 * del_malloc(current));
+	y = 0;
+	while (is_in_charset(str[y], "="))
+		y++;
+	if (str[y] != '\0')
+		ft_strjoin(&res, str, "=");
+	else
+		res = str;
+	ft_strdup(tmp, res);
+	if (str[y] != '\0')
+		del_malloc(res);
+	del_malloc(current);
+	del_malloc(tmp);
+	return (1);
+}
+
 int	add_env(char *str)
 {
 	int		i;
+	int		y;
+	char	*res;
 	t_data	*data;
 
-	i = 0;
+	y = 0;
 	data = get_data(NULL);
-	while (is_in_charset(str[i], "="))
-		i++;
-	if (str[i] != '\0')
-		return (1);
+	if (is_current_env(str))
+		return (0);
+	while (is_in_charset(str[y], "="))
+		y++;
+	if (str[y] != '\0')
+		ft_strjoin(&res, str, "=");
+	else
+		res = str;
 	i = 0;
 	while (data->env[i])
 		i++;
-	if (ft_realloc((void **)&data->env,  sizeof(char *) * i, sizeof(char *) * (i + 1))
-		|| ft_strdup(data->env + i, str))
+	if (ft_realloc((void **)&data->env, sizeof(char *) * i, sizeof(char *) * (i + 1))
+		|| ft_strdup(data->env + i, res))
 		return (1);
+	if (str[y] != '\0')
+		del_malloc(res);
 	return (0);
 }
 
@@ -68,7 +126,6 @@ int	del_env(char *str)
 	return (0);
 }
 
-
 int	iter_env(int (*f)(char *, int))
 {
 	char	**current;
@@ -89,6 +146,7 @@ int	iter_env(int (*f)(char *, int))
 
 int	get_env(char **res, char *name)
 {
+	char	*pos;
 	char	**current;
 	t_data	*data;
 	size_t	len;
@@ -100,7 +158,9 @@ int	get_env(char **res, char *name)
 	{
 		if (strncmp(*current, name, len) == 0)
 		{
-			*res = *current;
+			if (ft_strchr(&pos, *current, '='))
+				return (1);
+			*res = pos + 1;
 			return (0);
 		}
 		current++;

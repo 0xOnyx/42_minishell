@@ -119,11 +119,9 @@ int	parser(char *str)
 		return (1);
 	//TODO CREATE REAL COMMAND IS ONLY FOR TEST +>
 	cmd = calloc(sizeof(t_command), 2);
-	cmd[0].command = "cd";
+	cmd[0].command = "export";
 	cmd[0].arguments = calloc(sizeof(char *), 4);
-	cmd[0].arguments[0] = "cd";
-	cmd[0].arguments[1] = "..";
-	cmd[0].arguments[2] = NULL;
+	cmd[0].arguments[0] = NULL;
 	cmd[1].command = NULL;
 	data->command = cmd;
 	return (0);
