@@ -39,6 +39,7 @@ int			echo_cmd(t_command *command);
 int			unset_cmd(t_command *command);
 int			export_cmd(t_command *command);
 int			print_env(void);
+int			get_env(char **res, char *name);
 
 int			minishell(void);
 int			exec_command(void);

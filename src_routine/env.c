@@ -91,7 +91,7 @@ int	get_env(char **res, char *name)
 {
 	char	**current;
 	t_data	*data;
-	size_t 	len;
+	size_t	len;
 
 	len = ft_strlen(name);
 	data = get_data(NULL);

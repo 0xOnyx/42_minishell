@@ -22,29 +22,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 5 nov 22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/parser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info" beforeDir="false" afterPath="$PROJECT_DIR$/info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_garbage/garbage.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_garbage/garbage.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_parser/type_util.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/type_util.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/link_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/link_list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_util/ft_str3.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str3.c" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="WTF">
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/includers.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/includers.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/info" beforeDir="false" afterPath="$PROJECT_DIR$/info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/builtins.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/exec_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_split.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_split.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str1.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,40 +63,41 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src_parser/parser.c">
       <ranges>
-        <range start1="18" end1="19" start2="18" end2="18" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="20" end1="21" start2="19" end2="19" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="22" end1="22" start2="20" end2="21" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="23" end1="24" start2="22" end2="22" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="26" end1="27" start2="24" end2="31" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="33" end1="34" start2="37" end2="41" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="37" end1="37" start2="44" end2="45" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="38" end1="38" start2="46" end2="47" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="52" end1="53" start2="61" end2="63" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="56" end1="64" start2="66" end2="74" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="15" end1="15" start2="15" end2="25" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="18" end1="19" start2="28" end2="28" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="22" end1="24" start2="31" end2="32" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="27" end1="28" start2="35" end2="36" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="30" end1="33" start2="38" end2="40" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="36" end1="39" start2="43" end2="44" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="41" end1="42" start2="46" end2="47" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="44" end1="45" start2="49" end2="49" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="46" end1="47" start2="50" end2="50" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="48" end1="48" start2="51" end2="54" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="50" end1="50" start2="56" end2="101" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="63" end1="63" start2="114" end2="117" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="67" end1="68" start2="121" end2="122" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="69" end1="72" start2="123" end2="124" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src_routine/env.c">
+      <ranges>
+        <range start1="20" end1="20" start2="20" end2="70" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="24" end1="24" start2="74" end2="76" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="26" end1="27" start2="78" end2="79" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="28" end1="32" start2="80" end2="88" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="35" end1="37" start2="91" end2="93" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="38" end1="38" start2="94" end2="96" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="69" end1="70" start2="127" end2="127" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="91" end1="91" start2="148" end2="149" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="93" end1="94" start2="151" end2="152" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="102" end1="103" start2="160" end2="163" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/includes/minishell.h">
       <ranges>
-        <range start1="29" end1="29" start2="29" end2="30" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="33" end1="34" start2="34" end2="35" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="37" end1="37" start2="38" end2="41" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="47" end1="47" start2="51" end2="52" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/info">
-      <ranges>
-        <range start1="65" end1="65" start2="65" end2="75" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
-        <range start1="66" end1="66" start2="76" end2="77" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="67" end1="67" start2="78" end2="80" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/includes/utils.h">
-      <ranges>
-        <range start1="4" end1="5" start2="4" end2="5" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="8" end1="9" start2="8" end2="9" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="10" end1="11" start2="10" end2="11" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="14" end1="15" start2="14" end2="15" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
-        <range start1="16" end1="17" start2="16" end2="19" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="24" end1="24" start2="24" end2="25" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
+        <range start1="41" end1="41" start2="42" end2="43" changelist="ebffa8e3-886e-4897-9b0b-fb8241310d24" />
+        <range start1="51" end1="52" start2="53" end2="53" changelist="6867d597-2a24-42dd-a8bd-d0d69b7762a5" />
       </ranges>
     </file>
   </component>
@@ -241,7 +233,9 @@
       <workItem from="1667758246427" duration="831000" />
       <workItem from="1667759114364" duration="13017000" />
       <workItem from="1667834949932" duration="4980000" />
-      <workItem from="1667842809367" duration="14804000" />
+      <workItem from="1667842809367" duration="15316000" />
+      <workItem from="1667923017702" duration="1245000" />
+      <workItem from="1667931553715" duration="11987000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
@@ -303,9 +297,14 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_routine/minishell.c</url>
-          <line>35</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src_routine/builtins.c</url>
+          <line>99</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src_util/ft_str3.c</url>
+          <line>65</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

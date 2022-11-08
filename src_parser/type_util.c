@@ -62,7 +62,8 @@ int	get_type(t_lexical **type, char *str)
 {
 	int	val;
 
-	if (!(*str))
+
+	if (!(str))
 	{
 		if (lex_add_back(type, 0, 0, NULL))
 			return (1);

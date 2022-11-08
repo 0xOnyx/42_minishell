@@ -14,37 +14,88 @@ int	lexical_analyser(char *str)
 	return (0);
 }
 
+void	printlex(t_lexical *lexical)
+{
+	while (lexical->content)
+	{
+		printf("List content : {%s}\n", lexical->content);
+		lexical = lexical->next;
+	}
+	printf("List content : {%s}\n", lexical->content);
+}
+
 int	get_lexical(t_lexical **lst_head, char *str)
 {
-	t_lexical	*nodes;
 	int			cnt;
 	int			err;
 
-	nodes = NULL;
-	*lst_head = nodes;
+	*lst_head = NULL;
 	cnt = 0;
 	while (*(str + cnt) == ' ')
 		cnt++;
-	err = get_type(&nodes, str + cnt);
+	err = get_type(&(*lst_head), str + cnt);
 	if (err)
 		return (1);
-	printf("{%s}\n", nodes->content);
-	cnt = nodes->size;
-	while (nodes->size)
+	cnt = (*lst_head)->size;
+	while (cnt < ft_strlen(str))
 	{
 		if (*(str + cnt) != ' ')
 		{
-			nodes = nodes->next;
-			err = get_type(&nodes, str + cnt);
-			printf("{%s}\n", nodes->content);
+			err = get_type(lst_head, str + cnt);
 			if (err)
 				return (1);
-			cnt += nodes->size;
+			cnt += (*lst_head)->size;
 		}
 		else
-		{
 			cnt++;
+	}
+	err = get_type(lst_head, 0);
+	if (err)
+		return (1);
+	return (0);
+}
+
+int	get_next_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ')
+			break ;
+		i++;
+	}
+	return (i);
+}
+
+int	parse_dquote(t_lexical *lst_head)
+{
+	int			i;
+	int			j;
+	t_lexical	*nodes;
+	t_data		*data;
+	char		*tmp;
+
+	data = get_data(NULL);
+	j = 0;
+	while (lst_head->content)
+	{
+		i = 0;
+		while (lst_head->content[i])
+		{
+			if (lst_head->content[i] == '$')
+			{
+				get_env(&tmp, ft_substr(lst_head->content, i + \
+				1, i - get_next_space(lst_head->content + i)));
+				lst_head->content = ft_str_include(\
+				lst_head->content, tmp, i, \
+				get_next_space(lst_head->content + i) - i);
+			}
+			i++;
 		}
+		j++;
+		lst_head = lst_head->next;
 	}
 	return (0);
 }
@@ -61,6 +112,9 @@ int	parser(char *str)
 	data = get_data(NULL);
 	if (get_lexical(&head, str))
 		return (1);
+	printlex(head);
+	//parse_dquote(head);
+	//printlex(head);
 	if (lexical_analyser(str))
 		return (1);
 	//TODO CREATE REAL COMMAND IS ONLY FOR TEST +>
