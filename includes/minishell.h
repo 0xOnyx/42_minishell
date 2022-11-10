@@ -9,9 +9,8 @@ struct s_command
 {
 	char	*command;
 	char	**arguments;
-	int		stdin[2];
-	int		stdout[2];
-	int		stderr[2];
+	int 	input;
+	int 	ouput;
 	pid_t	pid;
 	int		last;
 	int		status;
@@ -19,7 +18,8 @@ struct s_command
 
 struct s_data
 {
-	t_command	*command;
+	t_lexical	*lexical;
+	t_command	command;
 	t_malloc	*garbage;
 	char		**env;
 	int			status;

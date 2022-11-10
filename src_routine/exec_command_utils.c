@@ -1,24 +1,5 @@
 #include "minishell.h"
 
-void	close_dup_in(int pipe[2], int fd)
-{
-	if (pipe[0] != fd)
-	{
-		dup2(pipe[0], fd);
-		close(pipe[0]);
-		close(pipe[1]);
-	}
-}
-
-void	close_dup_out(int pipe[2], int fd)
-{
-	if (pipe[1] != fd)
-	{
-		dup2(pipe[1], fd);
-		close(pipe[0]);
-		close(pipe[1]);
-	}
-}
 
 int	wait_process(void)
 {
@@ -56,6 +37,11 @@ int	get_cmd(char **command_path, char *cmd)
 	char	**paths;
 
 	i = 0;
+	if (access(*command_path, X_OK) == 0)
+	{
+		ft_strdup(&tmp, cmd);
+		return (tmp);
+	}
 	if (get_path(&path) || ft_split(&paths, path, ':'))
 		return (1 + (0 * del_malloc(path)));
 	while (paths[i])

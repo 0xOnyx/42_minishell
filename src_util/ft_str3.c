@@ -72,3 +72,13 @@ int	ft_strccmp(char *a, char *b, char c)
 	}
 	return (0);
 }
+
+int	get_len(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}

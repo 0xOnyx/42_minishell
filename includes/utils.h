@@ -8,6 +8,7 @@ int		ft_memcpy(void *dst, void *src, size_t len);
 int		ft_strdup(char **dst, char *src);
 size_t	ft_putstr_fd(char *str, int fd);
 
+int		get_len(char **str);
 int		ft_strncmp(char	*a, char *b, size_t n);
 int		is_in_charset(char c, const char *charset);
 size_t	ft_strlen(const char *str);

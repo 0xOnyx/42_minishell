@@ -44,7 +44,7 @@ static int	get_word_size(char *str)
 	return (i);
 }
 
-static int is_space(char *str)
+static int	is_space(char *str)
 {
 	int	i;
 
@@ -61,7 +61,6 @@ static int is_space(char *str)
 int	get_type(t_lexical **type, char *str, int *i)
 {
 	int	val;
-
 
 	if (!(str))
 		return (lex_add_back(type, 0, 0, NULL));

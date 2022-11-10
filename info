@@ -78,3 +78,25 @@ IF QUOTE IGNORE
 
 
 "sdfasdf "jkl;sadljksddlkjkdf"
+
+
+
+
+cmd => echo
+fileout => char **file;  => ["file1"]
+filein = > char **file; => ["file2"]
+fd  => int *fd;
+
+cat
+=>
+
+
+             +-------+
+             |       |
+echo test > file1 < file2 | cat -e
+ |           |
+ +-----------+
+
+
+
+

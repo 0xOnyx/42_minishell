@@ -38,53 +38,72 @@ static int	built_in_fork(t_command *command)
 	return (0);
 }
 
-int	exec_command(void)
+int	parse_command(t_lexical **lexical)
 {
-	int			i;
-	t_data		*data;
 	t_command	*command;
-	char		*command_path;
 
-	i = 0;
-	data = get_data(NULL);
-	command = data->command;
-	while (command[i].command)
+	command = &(get_data(NULL)->command);
+	if ((*lexical)->type == WORD)
 	{
-		command[i].pid = -1;
-		if (!built_in_main(command))
-			command[i].pid = fork();
-		else
-			data->status = 0;
-		if (command[i].pid == 0)
-		{
-			printf("fork\n");
-			close_dup_in(command[i].stdin, 0);
-			close_dup_out(command[i].stdout, 1);
-			close_dup_out(command[i].stderr, 2);
-			if (built_in_fork(command + i))
-				exit(1);
-			if (!get_cmd(&command_path, command[i].command))
-			{
-				if (execve(command_path, command[i].arguments, data->env) == -1)
-					perror("ERROR:");
-				del_malloc(command_path);
-				ft_putstr_fd(NAME, 2);
-				ft_putstr_fd(": command not found:", 2);
-				ft_putstr_fd(command[i].command, 2);
-				ft_putstr_fd("\n", 2);
-			}
-			exit(1);
-		}
-		if (command[i].last)
-		{
-			data->status = wait_process();
-			if (command[i + 1].command
-				&& command[i + 1].status >= 0
-				&& command[i + 1].status != data->status)
-				return (1);
-		}
-		i++;
+
 	}
-	data->status = wait_process();
 	return (0);
 }
+
+int	exec_command(void)
+{
+	t_data		*data;
+	t_lexical	*lexical;
+
+	data = get_data(NULL);
+	lexical = data->lexical;
+	while (lexical)
+		parse_command(&lexical);
+	return (0);
+}
+
+
+//int	exec_command(void)
+//{
+//	int			i;
+//	t_data		*data;
+//	char		*command_path;
+//
+//	i = 0;
+//	data = get_data(NULL);
+//	while (command[i].command)
+//	{
+//		command[i].pid = -1;
+//		if (!built_in_main(command))
+//			command[i].pid = fork();
+//		else
+//			data->status = 0;
+//		if (command[i].pid == 0)
+//		{
+//			if (built_in_fork(command + i))
+//				exit(1);
+//			if (!get_cmd(&command_path, command[i].command))
+//			{
+//				if (execve(command_path, command[i].arguments, data->env) == -1)
+//					perror("ERROR:");
+//				del_malloc(command_path);
+//				ft_putstr_fd(NAME, 2);
+//				ft_putstr_fd(": command not found:", 2);
+//				ft_putstr_fd(command[i].command, 2);
+//				ft_putstr_fd("\n", 2);
+//			}
+//			exit(1);
+//		}
+//		if (command[i].last)
+//		{
+//			data->status = wait_process();
+//			if (command[i + 1].command
+//				&& command[i + 1].status >= 0
+//				&& command[i + 1].status != data->status)
+//				return (1);
+//		}
+//		i++;
+//	}
+//	data->status = wait_process();
+//	return (0);
+//}

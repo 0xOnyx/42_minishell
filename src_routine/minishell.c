@@ -82,7 +82,7 @@ int	minishell(void)
 	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
-		if (parser(line) || !data->command)
+		if (parser(line) || !data->lexical)
 			ft_putstr_fd("Error: Command\n", 2);
 		else if (exec_command())
 			perror("Error:");

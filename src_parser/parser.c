@@ -1,19 +1,5 @@
 #include "parser.h"
 
-int	lexical_analyser(char *str)
-{
-	int			i;
-
-	i = 0;
-	if (!str)
-		return (1);
-	while (!str)
-	{
-		i++;
-	}
-	return (0);
-}
-
 void	printlex(t_lexical *lexical)
 {
 	while (lexical->content)
@@ -107,15 +93,15 @@ int	parse_dquote(t_lexical *lst_head)
 	return (0);
 }
 
-//TODO: CREATE PARSING PLS !
 int	parser(char *str)
 {
 	t_data		*data;
-	t_command	*cmd;
 	t_lexical	*head;
 
 	data = get_data(NULL);
-	if (get_lexical(&head, str))
+	if (get_lexical(&head, str)
+		|| parse_dquote(head)
+		|| init_command(&cmd, head))
 		return (1);
 	data->lexical = head;
 	return (0);

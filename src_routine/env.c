@@ -156,7 +156,8 @@ int	get_env(char **res, char *name)
 	current = data->env;
 	while (*current)
 	{
-		if (strncmp(*current, name, len) == 0)
+		if (strncmp(*current, name, len) == 0
+			&& (*current)[len] == '=')
 		{
 			if (ft_strchr(&pos, *current, '='))
 				return (1);

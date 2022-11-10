@@ -8,8 +8,6 @@ enum	e_type
 	IO,
 	PIPE,
 	WORD,
-	SQWORD,
-	DQWORD
 };
 
 struct s_lexical
