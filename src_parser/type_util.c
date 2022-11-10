@@ -35,7 +35,7 @@ static int	get_word_size(char *str)
 			is_in_dquote = 0;
 		if (str[i] == ' ' && !is_in_dquote && !is_in_squote)
 			return (i + 1);
-		if (is_io(str + i) || is_pipe(str + i))
+		if ((is_io(str + i) || is_pipe(str + i)) && !is_in_squote && !is_in_dquote)
 			return (i);
 		i++;
 	}
@@ -58,28 +58,22 @@ static int is_space(char *str)
 	return (0);
 }
 
-int	get_type(t_lexical **type, char *str)
+int	get_type(t_lexical **type, char *str, int *i)
 {
 	int	val;
 
 
 	if (!(str))
-	{
-		if (lex_add_back(type, 0, 0, NULL))
-			return (1);
-		return (0);
-	}
+		return (lex_add_back(type, 0, 0, NULL));
 	else if (is_io(str))
 	{
-		if (lex_add_back(type, IO, is_io(str), ft_substr(str, 0, is_io(str))))
-			return (1);
-		return (0);
+		*i += is_io(str);
+		return (lex_add_back(type, IO, is_io(str), ft_substr(str, 0, is_io(str))));
 	}
 	else if (is_pipe(str))
 	{
-		if (lex_add_back(type, PIPE, 1, ft_substr(str, 0, 1)))
-			return (1);
-		return (0);
+		*i += 1;
+		return (lex_add_back(type, PIPE, 1, ft_substr(str, 0, 1)));
 	}
 	else if (is_space(str))
 	{
@@ -88,6 +82,7 @@ int	get_type(t_lexical **type, char *str)
 			return (1);
 		if (lex_add_back(type, WORD, val, ft_substr(str, 0, val)))
 			return (1);
+		*i += val;
 	}
 	return (0);
 }
