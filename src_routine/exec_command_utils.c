@@ -39,8 +39,8 @@ int	get_cmd(char **command_path, char *cmd)
 	i = 0;
 	if (access(*command_path, X_OK) == 0)
 	{
-		ft_strdup(&tmp, cmd);
-		return (tmp);
+		ft_strdup(command_path, cmd);
+		return (0);
 	}
 	if (get_path(&path) || ft_split(&paths, path, ':'))
 		return (1 + (0 * del_malloc(path)));

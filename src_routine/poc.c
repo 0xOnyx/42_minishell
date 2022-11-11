@@ -26,8 +26,8 @@ int exec_command(char **argv, int argc, int tmp_fd, char **env)
 int	main(int argc, char **argv, char **env)
 {
 	int		i;
-	int 	id;
-	int 	res;
+	int		id;
+	int		res;
 	int		fd[2];
 	int		tmp_fd;
 

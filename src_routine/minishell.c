@@ -46,7 +46,7 @@ static int	prompt(char **line)
 	*line = current_line;
 	return (0);
 }
-
+	//TODO: Update this for the new version
 static int	kill_current_process(void)
 {
 //	t_command	*command;
@@ -82,10 +82,13 @@ int	minishell(void)
 	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
+		printf("current line => {%s}\n", line);
 		if (parser(line) || !data->lexical)
 			ft_putstr_fd("Error: Command\n", 2);
 		else if (exec_command())
 			perror("Error:");
+		free(line);
+		printf("my pid in main is => %d\n", data->pid[0]);
 	}
 	return (0);
 }

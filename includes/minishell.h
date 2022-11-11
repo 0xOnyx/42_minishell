@@ -9,15 +9,14 @@ struct s_command
 {
 	char	*command;
 	char	**arguments;
-	int 	input;
-	int 	ouput;
-	pid_t	pid;
-	int		last;
-	int		status;
+	int		pipe[2];
+	int		tmp_fd;
 };
 
 struct s_data
 {
+	int			len_cmd;
+	pid_t		*pid;
 	t_lexical	*lexical;
 	t_command	command;
 	t_malloc	*garbage;
