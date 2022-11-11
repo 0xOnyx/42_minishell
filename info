@@ -99,4 +99,27 @@ echo test > file1 < file2 | cat -e
 
 
 
+"'l'"'s'
+
+
+echo
+"'test'""'test2'"
+
+
+""
+''
+test
+
+
+ "-"'l'"a"
+
+ ""
+ -
+
+ ''
+ l
+
+ ""
+ a
+
 

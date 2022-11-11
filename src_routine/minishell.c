@@ -49,14 +49,14 @@ static int	prompt(char **line)
 
 static int	kill_current_process(void)
 {
-	t_command	*command;
-
-	command = get_data(NULL)->command;
-	while (command && command->pid > 0)
-	{
-		kill(command->pid, SIGINT);
-		command++;
-	}
+//	t_command	*command;
+//
+//	command = &get_data(NULL)->command;
+//	while (command && command->pid > 0)
+//	{
+//		kill(command->pid, SIGINT);
+//		command++;
+//	}
 	return (0);
 }
 
