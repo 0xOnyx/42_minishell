@@ -93,6 +93,7 @@ int	add_env(char *str)
 		return (1);
 	if (ft_strdup(data->env + i, res))
 		return (1);
+	data->env[i] = NULL;
 	if (str[y] != '\0')
 		del_malloc(res);
 	return (0);

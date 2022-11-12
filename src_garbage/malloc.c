@@ -29,7 +29,7 @@ int ft_realloc(void **element, size_t old_size, size_t new_size)
 		return (ft_calloc(element, new_size, 1));
 	if (ft_malloc(element, new_size)
 		|| ft_memcpy(*element, old, old_size)
-		|| del_malloc( element))
+		|| del_malloc(old))
 		return (1);
 	return (0);
 }

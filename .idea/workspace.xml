@@ -21,27 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/echo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/builtins.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_garbage/malloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_garbage/malloc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/exec_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/exec_command_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/poc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/poc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str2.c" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
-    <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="">
-      <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str4.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str4.c" afterDir="false" />
-    </list>
+    <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +49,6 @@
     <setting file="file://$PROJECT_DIR$/src_routine/builtins.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src_routine/env.c" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src_routine/routine.c" root0="FORCE_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://42" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -109,25 +93,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "/Users/jerdos-s/Documents/minishell",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "structure.view.defaults.are.configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jerdos-s/Documents/minishell&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Makefile Application.all">
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <method v="2">
@@ -147,6 +131,11 @@
     <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -205,7 +194,8 @@
       <workItem from="1668132908045" duration="2000" />
       <workItem from="1668176768103" duration="8659000" />
       <workItem from="1668190931669" duration="555000" />
-      <workItem from="1668199105554" duration="23129000" />
+      <workItem from="1668199105554" duration="23448000" />
+      <workItem from="1668269792615" duration="4055000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
@@ -335,11 +325,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_routine/env.c</url>
-          <line>82</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src_routine/exec_command.c</url>
           <line>150</line>
           <option name="timeStamp" value="33" />
@@ -352,7 +337,7 @@
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src_routine/env.c</url>
           <line>91</line>
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
