@@ -66,6 +66,7 @@ int	main(int argc, char **argv, char **env)
 		}
 		else if (argv[i][0] == '|')
 		{
+			pipe(fd);
 			id = fork();
 			if (id == 0)
 			{

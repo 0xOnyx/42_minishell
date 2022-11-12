@@ -80,17 +80,18 @@ int	add_env(char *str)
 	data = get_data(NULL);
 	if (is_current_env(str))
 		return (0);
-	while (is_in_charset(str[y], "="))
+	while (str[y] && str[y] != '=')
 		y++;
-	if (str[y] != '\0')
+	if (str[y] == '\0')
 		ft_strjoin(&res, str, "=");
 	else
 		res = str;
 	i = 0;
 	while (data->env[i])
 		i++;
-	if (ft_realloc((void **)&data->env, sizeof(char *) * i, sizeof(char *) * (i + 1))
-		|| ft_strdup(data->env + i, res))
+	if (ft_realloc((void **)&data->env, sizeof(char *) * i, sizeof(char *) * (i + 1)))
+		return (1);
+	if (ft_strdup(data->env + i, res))
 		return (1);
 	if (str[y] != '\0')
 		del_malloc(res);

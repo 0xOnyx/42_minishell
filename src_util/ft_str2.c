@@ -14,6 +14,8 @@ size_t	ft_strlcat(char *dst, char *src, size_t max_len)
 		res = len_dst + len_src;
 	else
 		res = max_len + len_src;
+	if (len_src == 0)
+		return (res);
 	while (src[i] && len_dst < max_len - 1)
 		dst[len_dst++] = src[i++];
 	dst[len_dst] = 0;

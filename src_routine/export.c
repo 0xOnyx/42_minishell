@@ -45,7 +45,7 @@ int	print_export(void)
 	del_malloc(new_env);
 	return (0);
 }
-
+//TODO: CORRECT EXPORT FUNCTION
 int	export_cmd(t_command *command)
 {
 	char	**env;

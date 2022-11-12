@@ -5,6 +5,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -40,6 +42,8 @@ int	ft_strncmp(char *a, char *b, size_t n)
 	size_t	i;
 
 	i = 0;
+	if (!a || !b)
+		return (-1);
 	while ((a[i] || b[i]) && i < n)
 	{
 		if (a[i] != b[i])

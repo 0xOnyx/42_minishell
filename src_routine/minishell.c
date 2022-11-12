@@ -46,25 +46,28 @@ static int	prompt(char **line)
 	*line = current_line;
 	return (0);
 }
-	//TODO: Update this for the new version
+
 static int	kill_current_process(void)
 {
-//	t_command	*command;
-//
-//	command = &get_data(NULL)->command;
-//	while (command && command->pid > 0)
-//	{
-//		kill(command->pid, SIGINT);
-//		command++;
-//	}
+	t_data		*data;
+	int			i;
+
+	i = 0;
+	data = get_data(NULL);
+	//while (i < data->len_cmd)
+	//	kill(data->pid[i++], SIGINT);
+	kill(data->pid[data->len_cmd - 1], SIGINT);
 	return (0);
 }
 
 static void	exit_handler(int sign)
 {
-	if (sign == SIGINT || sign == SIGQUIT)
+	t_data	*data;
+
+	data = get_data(NULL);
+	if ((sign == SIGINT || sign == SIGQUIT) && !data->is_running)
 	{
-		kill_current_process();
+		//kill_current_process();
 		write(2, "\n", 1);
 		rl_replace_line("", 0);
 		rl_on_new_line();
@@ -88,7 +91,7 @@ int	minishell(void)
 		else if (exec_command())
 			perror("Error:");
 		free(line);
-		printf("my pid in main is => %d\n", data->pid[0]);
+		ft_putstr_fd("\n", 1);
 	}
 	return (0);
 }

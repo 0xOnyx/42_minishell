@@ -1,11 +1,10 @@
 #include "minishell.h"
 
-
 int	wait_process(void)
 {
 	int		status;
 
-	while (wait(&status) != -1)
+	while (waitpid(-1, &status, 0) != -1)
 		continue ;
 	if (errno == ECHILD)
 		return (WIFEXITED(status));
@@ -60,4 +59,46 @@ int	get_cmd(char **command_path, char *cmd)
 		i++;
 	}
 	return (free_split(paths));
+}
+
+int	heredoc(int fd, char *end)
+{
+	int		id;
+	char	*current;
+	char	*tmp;
+	char	*res;
+	size_t	len;
+	int		tube[2];
+
+	pipe(tube);
+	id = fork();
+	if (!id)
+	{
+		close(tube[1]);
+		dup2(tube[1], fd);
+		close(tube[0]);
+		current = NULL;
+		res = NULL;
+		len = ft_strlen(end);
+		while (1)
+		{
+			current = readline("heredoc>");
+			if (ft_strncmp(current, end, len + 1) == 0)
+				break ;
+			if (ft_strjoin(&tmp, current, res))
+				return (1);
+			del_malloc(res);
+			free(current);
+			res = tmp;
+		}
+		free(current);
+		ft_putstr_fd(res, fd);
+		del_malloc(res);
+		exit(0);
+	}
+	waitpid(id, NULL, 0);
+	dup2(tube[0], fd);
+	close(tube[1]);
+	close(tube[0]);
+	return (0);
 }

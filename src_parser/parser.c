@@ -4,7 +4,7 @@ void	printlex(t_lexical *lexical)
 {
 	while (lexical)
 	{
-		printf("List content : {%s}\n", lexical->content);
+		printf("List content : {%s}, size :{%d}\n", lexical->content, lexical->size);
 		lexical = lexical->next;
 	}
 }
@@ -18,7 +18,7 @@ int	get_lexical(t_lexical **lst_head, char *str)
 	cnt = 0;
 	while (*(str + cnt) == ' ')
 		cnt++;
-	err = get_type(&(*lst_head), str, &cnt);
+	err = get_type(&(*lst_head), str + cnt, &cnt);
 	if (err)
 		return (1);
 	while (cnt < ft_strlen(str))
@@ -81,6 +81,11 @@ int	parse_dquote(t_lexical *lst_head)
 					lst_head->content = ft_str_include(tmpcontent, "", i, \
 					get_next_space(tmpcontent + i + 1, " \"'$") + 1);
 			}
+			if (i == ft_strlen(tmpcontent) - 1 && tmpcontent[i] == ' ')
+			{
+				lst_head->content = ft_str_include(tmpcontent, "", i, \
+				1);
+			}
 			i++;
 		}
 		j++;
@@ -98,9 +103,10 @@ int	rem_quote(t_lexical *lst_head)
 	int			quotes[2];
 
 	j = 0;
-	ft_bzero(quotes, 2);
 	while (lst_head)
 	{
+		quotes[0] = 0;
+		quotes[1] = 0;
 		if (ft_strdup(&tmpcontent, lst_head->content))
 			return (1);
 		i = 0;
@@ -108,19 +114,23 @@ int	rem_quote(t_lexical *lst_head)
 		{
 			is_in_squote(&(quotes[0]), tmpcontent[i]);
 			is_in_dquote(&(quotes[1]), tmpcontent[i]);
-			printf("[%c][%d][%d]\n", tmpcontent[i], quotes[1], quotes[0]);
+			//printf("(%s)(%d)(%d)(%d)(%c)\n", tmpcontent, i, quotes[0], quotes[1], tmpcontent[i]);
 			if ((quotes[1] && !quotes[0]) || (quotes[0] && !quotes[1]))
 			{
 				if (tmpcontent[i] == '"' || tmpcontent[i] == '\'')
 				{
-					ft_rmv_char(&tmpcontent, i);
-					if (quotes[0] == 2)
+					ft_rmv_char(&(tmpcontent), i);
+					if (quotes[0] >= 2)
 						quotes[0] = 0;
-					if (quotes[1] == 2)
+					if (quotes[1] >= 2)
 						quotes[1] = 0;
 					continue ;
 				}
 			}
+			if (quotes[0] >= 2)
+				quotes[0] = 0;
+			if (quotes[1] >= 2)
+				quotes[1] = 0;
 			i++;
 		}
 		j++;
@@ -142,7 +152,7 @@ int	parser(char *str)
 		|| parse_dquote(head))
 		return (1);
 	printlex(head);
-	//rem_quote(head);
+	rem_quote(head);
 	printlex(head);
 	data->lexical = head;
 	return (0);

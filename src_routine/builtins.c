@@ -7,14 +7,17 @@ int	get_pwd(char **buff)
 		return (1);
 	return (0);
 }
-
+//TODO : ADD FEATURE FOR +>  "-" OLDPWD
 int	cd_fn(t_command *command)
 {
-	char *path;
+	char	*path;
 
 	path = command->arguments[1];
-	if (!*path)
-		return (1);
+	if (!path)
+	{
+		if (get_env(&path, "HOME"))
+			return (1);
+	}
 	printf("value of path = >> %s\n", path);
 	if (chdir((const char *)path) < 0)
 		return (1);
