@@ -9,7 +9,7 @@ static void	ft_swap(char **a, char **b)
 	*b = tmp;
 }
 
-static int partition(char **str, int lo, int hi)
+static int	partition(char **str, int lo, int hi)
 {
 	int	pi;
 	int	i;

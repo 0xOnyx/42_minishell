@@ -31,7 +31,9 @@ char	*ft_str_include(char *src, char *include, int pos, int skip)
 	int		i;
 	int		j;
 
-	if (ft_calloc((void **)&res, ft_strlen(src) + ft_strlen(include) - skip + 1, sizeof(char)))
+	if (ft_calloc((void **)&res,
+			ft_strlen(src) + ft_strlen(include) - skip + 1,
+			sizeof(char)))
 		return (NULL);
 	i = -1;
 	while (++i < pos)

@@ -25,8 +25,6 @@ int	get_git(char **res)
 	while (i >= 0)
 		if (buff[i--] == '/')
 			break ;
-	if (i == 0)
-		return (1);
 	*res = ft_substr(buff, i + 2, ft_strlen(buff + i + 2) - 1);
 	return (close(fd));
 }

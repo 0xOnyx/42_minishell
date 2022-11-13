@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t max_len)
 
 int	ft_strjoin(char **buff, char *a, char *b)
 {
-	size_t 	i;
+	size_t	i;
 	size_t	len_max;
 
 	i = 0;

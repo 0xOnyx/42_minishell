@@ -8,7 +8,7 @@ static int	get_prompt(char buff[MAX_PROMPT])
 	i = 0;
 	ft_bzero(content_prompt, sizeof(char *) * 25);
 	ft_strdup(&content_prompt[i++], "\xF0\x9F\x94\xA5\x1b[91m ");
-	ft_strdup(&content_prompt[i++], "MINISHELL");
+	ft_strdup(&content_prompt[i++], NAME);
 	ft_strdup(&content_prompt[i++], " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ");
 	ft_strdup(&content_prompt[i++], "\x1b[32m[\x1b[97m ");
 	get_pwd(&content_prompt[i++]);
