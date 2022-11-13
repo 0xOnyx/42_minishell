@@ -10,6 +10,8 @@ int	get_pwd(char **buff)
 //TODO : ADD FEATURE FOR +>  "-" OLDPWD
 int	cd_fn(t_command *command)
 {
+	char	*pwd;
+	char	*oldpwd;
 	char	*path;
 
 	path = command->arguments[1];
@@ -18,6 +20,17 @@ int	cd_fn(t_command *command)
 		if (get_env(&path, "HOME"))
 			return (1);
 	}
+	if (strncmp(path, "-", 1) == 0)
+	{
+		if (get_env(&path, "OLDPWD"))
+			return (1);
+	}
+	if (get_pwd(&pwd)
+		|| ft_strjoin(&oldpwd, "OLDPWD=", pwd)
+		|| add_env(oldpwd))
+		return (1);
+	del_malloc(pwd);
+	del_malloc(oldpwd);
 	printf("value of path = >> %s\n", path);
 	if (chdir((const char *)path) < 0)
 		return (1);
