@@ -88,6 +88,8 @@ static int	is_current_env(char *str)
 	size_t	len;
 	char 	**current;
 	char 	*pos;
+	int 	y;
+	char 	*res;
 
 	pos = NULL;
 	name = get_name(str);
@@ -105,8 +107,17 @@ static int	is_current_env(char *str)
 	{
 		printf("is current in\n");
 		del_malloc(pos);
-		ft_strdup(current, str);
+		y = 0;
+		while (str[y] && str[y] != '=')
+			y++;
+		if (!str[y])
+			ft_strjoin(&res, str, "=");
+		else
+			res = str;
+		ft_strdup(current, res);
 		del_malloc(name);
+		if (!str[y])
+			del_malloc(res);
 		return (1);
 	}
 	del_malloc(name);
@@ -115,11 +126,10 @@ static int	is_current_env(char *str)
 
 int	add_env(char *str)
 {
-	char 	*res;
-	char 	**new_env;
+	char	*res;
 	t_data	*data;
-	int 	len;
-	int 	y;
+	int		len;
+	int		y;
 
 	y = 0;
 	data = get_data(NULL);
@@ -128,19 +138,19 @@ int	add_env(char *str)
 	printf("is not_current\n");
 	len = get_len(data->env) + 1;
 	if (ft_realloc((void **)&data->env,
-		sizeof(char *) * len,
-		sizeof(char *) * (len + 1)))
+			sizeof(char *) * len,
+			sizeof(char *) * (len + 1)))
 		return (1);
-//	while (str[y] && str[y] != '=')
-//		y++;
-//	if (!str[y])
-//		ft_strjoin(&res, str, "=");
-//	else
-//		res = str;
-//	if (ft_strdup(data->env + len - 1, res))
-//		return (1);
-//	if (!str[y])
-//		del_malloc(res);
+	while (str[y] && str[y] != '=')
+		y++;
+	if (!str[y])
+		ft_strjoin(&res, str, "=");
+	else
+		res = str;
+	if (ft_strdup(data->env + len - 1, res))
+		return (1);
+	if (!str[y])
+		del_malloc(res);
 	return (0);
 }
 
@@ -181,24 +191,31 @@ int	del_env(char *str)
 	int		pos_del;
 	int		i;
 	int		y;
+	int		size;
 
+	size = ft_strlen(str);
+	printf("current value => %s\n", str);
 	i = 0;
 	y = 0;
 	pos_del = 0;
 	data = get_data(NULL);
-	while (data->env[pos_del] && ft_strncmp(data->env[pos_del], str, ft_strlen(str)))
+	while (data->env[pos_del]
+		&& ft_strncmp(data->env[pos_del], str, size) == 0
+		&& data->env[pos_del][size] != '=')
 		pos_del++;
+	printf("value pos_del => %d\n", pos_del);
 	if (!data->env[pos_del])
 		return (1);
 	last = data->env;
-	if (ft_calloc((void **)&data->env, sizeof(char *), ft_strlen(str) - 1))
+	if (ft_calloc((void **)&data->env, sizeof(char *), get_len(data->env)))
 		return (1);
 	while (last[y])
 	{
 		if (y != pos_del)
-			data->env[i++] = *last;
+			data->env[i++] = last[y];
 		y++;
 	}
+	data->env[i++] = NULL;
 	del_malloc((void *)last);
 	return (0);
 }
@@ -233,7 +250,7 @@ int	get_env(char **res, char *name)
 	current = data->env;
 	while (*current)
 	{
-		if (!strncmp(*current, name, len)
+		if (!ft_strncmp(*current, name, len)
 			&& (*current)[len] == '=')
 		{
 			if (ft_strchr(&pos, *current, '='))

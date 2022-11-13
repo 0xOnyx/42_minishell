@@ -1,17 +1,17 @@
 #include "minishell.h"
 
-int print_env(void)
+int	print_env(void)
 {
 	char	**env;
 	t_data	*data;
 	int		i;
 
-	i = 0;
 	data = get_data(NULL);
 	env = data->env;
 	while (*env)
 	{
-		while (is_in_charset(*env[i], "="))
+		i = 0;
+		while ((*env)[i] && (*env)[i] != '=')
 			i++;
 		if (*env[i] != '\0')
 		{
@@ -45,7 +45,7 @@ int	print_export(void)
 	del_malloc(new_env);
 	return (0);
 }
-//TODO: CORRECT EXPORT FUNCTION
+
 int	export_cmd(t_command *command)
 {
 	char	**env;

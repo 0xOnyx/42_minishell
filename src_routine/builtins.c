@@ -44,6 +44,7 @@ int	echo_cmd(t_command *command)
 	return (0);
 }
 
+//TODO: correct unset command
 int	unset_cmd(t_command *command)
 {
 	char	**env;

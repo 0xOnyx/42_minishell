@@ -35,8 +35,8 @@ OBJ					= $(SRCS:.c=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 HEADERS				= $(addprefix $(PATH_HEADER),$(HEADER))
 
-DEBUG				= -fsanitize=address -g3 -static-libasan
-CFLAGS				= -o3
+DEBUG				=  -g3
+CFLAGS				= -o3 $(DEBUG)
 OPTIONS				= -I$(PATH_HEADER) -I$(HOME)/.brew/opt/readline/include
 LIBS				= -L$(HOME)/.brew/opt/readline/lib/ -lreadline -lhistory
 CC					= gcc

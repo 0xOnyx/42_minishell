@@ -20,7 +20,7 @@ int	ft_calloc(void **element, size_t len, size_t nbr)
 	return (0);
 }
 
-int ft_realloc(void **element, size_t old_size, size_t new_size)
+int	ft_realloc(void **element, size_t old_size, size_t new_size)
 {
 	void	*old;
 

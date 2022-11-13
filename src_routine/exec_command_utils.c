@@ -36,7 +36,7 @@ int	get_cmd(char **command_path, char *cmd)
 	char	**paths;
 
 	i = 0;
-	if (access(*command_path, X_OK) == 0)
+	if (access(cmd, X_OK) == 0)
 	{
 		ft_strdup(command_path, cmd);
 		return (0);

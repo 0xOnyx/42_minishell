@@ -143,14 +143,12 @@ static int	exec_this(t_command	*command, t_lexical *node,
 	t_lexical	*current;
 	t_data		*data;
 
-	printf("exec_this \n");
 	current = node;
 	dup2(tmp_fd, 0);
 	close(tmp_fd);
 	data = get_data(NULL);
 	while (current != last && current)
 	{
-		printf("is in while \n");
 		if (current->type == IO)
 		{
 			if (current->content[0] == '>')
@@ -168,7 +166,6 @@ static int	exec_this(t_command	*command, t_lexical *node,
 					perror("Error");
 					return (1);
 				}
-				printf("NEW FD FOR 1 => %d\n", tmp_fd);
 				close(1);
 				dup2(tmp_fd, 1);
 				close(tmp_fd);
