@@ -27,9 +27,10 @@ int ft_realloc(void **element, size_t old_size, size_t new_size)
 	old = *element;
 	if (!*element)
 		return (ft_calloc(element, new_size, 1));
-	if (ft_malloc(element, new_size)
+	if (ft_calloc(element, new_size, 1)
 		|| ft_memcpy(*element, old, old_size)
 		|| del_malloc(old))
 		return (1);
+	printf("ptr => %p\n", old);
 	return (0);
 }

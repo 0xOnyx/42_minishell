@@ -27,8 +27,9 @@ int	del_malloc(void *element)
 		return (1);
 	if (pos == 0)
 	{
+		printf("value clean -> %d\n", pos);
+		*root = current->next;
 		free_node(current);
-		*root = NULL;
 		return (0);
 	}
 	while (--pos > 0)

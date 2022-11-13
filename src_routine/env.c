@@ -98,30 +98,49 @@ static int	is_current_env(char *str)
 	{
 		if (!strncmp(*current, name, len)
 			&& (*current)[len] == '=')
-		{
-			pos = *current;
 			break ;
-		}
 		current++;
 	}
-	if (pos)
+	if (*current)
 	{
 		printf("is current in\n");
 		del_malloc(pos);
-		ft_strdup(&pos, str);
+		ft_strdup(current, str);
+		del_malloc(name);
 		return (1);
 	}
+	del_malloc(name);
 	return (0);
 }
 
 int	add_env(char *str)
 {
+	char 	*res;
+	char 	**new_env;
 	t_data	*data;
+	int 	len;
+	int 	y;
 
+	y = 0;
 	data = get_data(NULL);
 	if (is_current_env(str))
 		return (0);
 	printf("is not_current\n");
+	len = get_len(data->env) + 1;
+	if (ft_realloc((void **)&data->env,
+		sizeof(char *) * len,
+		sizeof(char *) * (len + 1)))
+		return (1);
+//	while (str[y] && str[y] != '=')
+//		y++;
+//	if (!str[y])
+//		ft_strjoin(&res, str, "=");
+//	else
+//		res = str;
+//	if (ft_strdup(data->env + len - 1, res))
+//		return (1);
+//	if (!str[y])
+//		del_malloc(res);
 	return (0);
 }
 

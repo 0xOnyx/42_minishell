@@ -35,8 +35,8 @@ OBJ					= $(SRCS:.c=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 HEADERS				= $(addprefix $(PATH_HEADER),$(HEADER))
 
-DEBUG				= -fsanitize=address -g3
-CFLAGS				= -o3 $(DEBUG)
+DEBUG				= -fsanitize=address -g3 -static-libasan
+CFLAGS				= -o3
 OPTIONS				= -I$(PATH_HEADER) -I$(HOME)/.brew/opt/readline/include
 LIBS				= -L$(HOME)/.brew/opt/readline/lib/ -lreadline -lhistory
 CC					= gcc
@@ -65,9 +65,9 @@ $(PATH_OBJ)$(PATH_UTIL)%.o		: $(PATH_UTIL)%.c $(HEADERS)
 all			: $(NAME)
 
 $(NAME)		: $(OBJS)
-	@$(CC) $(CFLAGS) $(OPTIONS) $(LIBS) -o $(@)  $(LIBS) $(^)
+	@$(CC) $(CFLAGS) $(OPTIONS) -o $(@) $(^) $(LIBS)
 	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] LINKAGE $(COLOR_BOLD)ALL OBJS FILE =>\n\t $(COLOR_WHITE)$(^:.o=.o\n\t)"
-	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION FINISH !"
+	@echo "$(COLOR_GREEN)[$(COLOR_WHITE)INFO$(COLOR_GREEN)] COMPILATION FINISH !$(COLOR_WHITE)"
 
 clean		:
 	@$(RM) $(OBJS)
