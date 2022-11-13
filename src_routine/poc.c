@@ -45,7 +45,6 @@ int	main(int argc, char **argv, char **env)
 				printf("error: cd: bad arguments");
 			else if (chdir(argv[1]) < 0)
 				perror("error");
-			printf("value => %s\n", argv[1]);
 		}
 		else  if (!argv[i] || argv[i][0] == ';')
 		{

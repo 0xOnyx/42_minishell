@@ -1,17 +1,8 @@
 #include "parser.h"
 
-void	printlex(t_lexical *lexical)
-{
-	while (lexical)
-	{
-		printf("List content : {%s}, size :{%d}\n", lexical->content, lexical->size);
-		lexical = lexical->next;
-	}
-}
-
 int	get_lexical(t_lexical **lst_head, char *str)
 {
-	int			cnt;
+	size_t		cnt;
 	int			err;
 
 	*lst_head = NULL;
@@ -51,7 +42,7 @@ int	get_next_space(char *str, char *charset)
 
 int	parse_dquote(t_lexical *lst_head)
 {
-	int			i;
+	size_t			i;
 	int			j;
 	char		*tmp;
 	char		*tmpcontent;
@@ -114,7 +105,6 @@ int	rem_quote(t_lexical *lst_head)
 		{
 			is_in_squote(&(quotes[0]), tmpcontent[i]);
 			is_in_dquote(&(quotes[1]), tmpcontent[i]);
-			//printf("(%s)(%d)(%d)(%d)(%c)\n", tmpcontent, i, quotes[0], quotes[1], tmpcontent[i]);
 			if ((quotes[1] && !quotes[0]) || (quotes[0] && !quotes[1]))
 			{
 				if (tmpcontent[i] == '"' || tmpcontent[i] == '\'')
@@ -151,9 +141,7 @@ int	parser(char *str)
 	if (get_lexical(&head, str)
 		|| parse_dquote(head))
 		return (1);
-	printlex(head);
 	rem_quote(head);
-	printlex(head);
 	data->lexical = head;
 	return (0);
 }

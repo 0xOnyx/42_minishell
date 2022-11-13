@@ -31,6 +31,5 @@ int	ft_realloc(void **element, size_t old_size, size_t new_size)
 		|| ft_memcpy(*element, old, old_size)
 		|| del_malloc(old))
 		return (1);
-	printf("ptr => %p\n", old);
 	return (0);
 }

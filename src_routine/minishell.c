@@ -47,18 +47,18 @@ static int	prompt(char **line)
 	return (0);
 }
 
-static int	kill_current_process(void)
-{
-	t_data		*data;
-	int			i;
-
-	i = 0;
-	data = get_data(NULL);
-	//while (i < data->len_cmd)
-	//	kill(data->pid[i++], SIGINT);
-	kill(data->pid[data->len_cmd - 1], SIGINT);
-	return (0);
-}
+//static int	kill_current_process(void)
+//{
+//	t_data		*data;
+//	int			i;
+//
+//	i = 0;
+//	data = get_data(NULL);
+//	//while (i < data->len_cmd)
+//	//	kill(data->pid[i++], SIGINT);
+//	kill(data->pid[data->len_cmd - 1], SIGINT);
+//	return (0);
+//}
 
 static void	exit_handler(int sign)
 {
@@ -85,7 +85,6 @@ int	minishell(void)
 	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
-		printf("current line => {%s}\n", line);
 		if (parser(line) || !data->lexical)
 			ft_putstr_fd("Error: Command\n", 2);
 		else if (exec_command())

@@ -25,7 +25,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out" beforeDir="false" afterPath="$PROJECT_DIR$/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_garbage/free.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_garbage/free.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_garbage/malloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_garbage/malloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_parser/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_parser/type_util.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_parser/type_util.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/builtins.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/exec_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/poc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/poc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_util/ft_str4.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str4.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_util/github.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/github.c" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
     <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="" />
@@ -128,7 +141,10 @@
 }</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
+      <command value="git commit -m &quot;fix cd back pwd&quot;" />
+      <command value="git push origin master" />
       <command value="man open" />
+      <command value="grep printf ./ -r " />
     </option>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
@@ -218,7 +234,7 @@
       <workItem from="1668301703819" duration="476000" />
       <workItem from="1668302225560" duration="7903000" />
       <workItem from="1668311259639" duration="12437000" />
-      <workItem from="1668375441868" duration="511000" />
+      <workItem from="1668375441868" duration="1555000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
@@ -349,13 +365,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src_routine/env.c</url>
-          <line>206</line>
+          <line>141</line>
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_routine/builtins.c</url>
-          <line>67</line>
-          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

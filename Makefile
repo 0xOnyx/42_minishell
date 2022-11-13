@@ -35,8 +35,8 @@ OBJ					= $(SRCS:.c=.o)
 OBJS				= $(addprefix $(PATH_OBJ),$(OBJ))
 HEADERS				= $(addprefix $(PATH_HEADER),$(HEADER))
 
-DEBUG				=  -g3
-CFLAGS				= -o3 $(DEBUG)
+DEBUG				=  -g3 -fsanitize=address
+CFLAGS				= -o3 $(DEBUG) -Wall -Wextra -Werror
 OPTIONS				= -I$(PATH_HEADER) -I$(HOME)/.brew/opt/readline/include
 LIBS				= -L$(HOME)/.brew/opt/readline/lib/ -lreadline -lhistory
 CC					= gcc

@@ -58,7 +58,7 @@ static int	is_space(char *str)
 	return (0);
 }
 
-int	get_type(t_lexical **type, char *str, int *i)
+int	get_type(t_lexical **type, char *str, size_t *i)
 {
 	int	val;
 

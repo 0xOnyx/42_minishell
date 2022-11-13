@@ -18,7 +18,7 @@ struct s_lexical
 	struct s_lexical	*next;
 };
 
-int			get_type(t_lexical **type, char *str, int *i);
+int			get_type(t_lexical **type, char *str, size_t *i);
 int			create_lexical(t_lexical **lexical, enum e_type type, int size, char *content);
 int			lex_add_front(t_lexical **root, enum e_type type, int size);
 int			lex_add_back(t_lexical **root, enum e_type type, int size, char*content);
@@ -26,7 +26,7 @@ int			get_lexical(t_lexical **lst_head, char *str);
 
 void		in_dquote(int *i, char c);
 void		in_squote(int *i, char c);
-int			ft_rmv_char(char **buffadr, int i);
+int			ft_rmv_char(char **buffadr, size_t i);
 void		is_in_squote(int *i, char c);
 void		is_in_dquote(int *i, char c);
 

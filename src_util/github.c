@@ -1,16 +1,5 @@
 #include "minishell.h"
 
-static int	is_in_str(char *str)
-{
-	while (*str)
-	{
-		if (is_in_charset(*str, "\n"))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
 int	get_git(char **res)
 {
 	int		i;

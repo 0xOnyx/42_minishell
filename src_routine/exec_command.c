@@ -241,7 +241,6 @@ int	parse_command(t_lexical **lexical, int pid_i)
 				return (1);
 			else if (!data->pid[pid_i])
 			{
-				printf("CURRENT FORKED \n");
 				if (exec_this(command, *lexical, last, command->tmp_fd))
 				{
 					if (errno)
@@ -272,7 +271,6 @@ int	exec_command(void)
 	if (ft_calloc((void **)&data->pid, sizeof(pid_t), data->len_cmd))
 		return (1);
 	data->is_running = 1;
-	printf("---- [EXECOMMAND] ----\n");
 	while (lexical)
 	{
 		if (parse_command(&lexical, data->pid[pid_i++]))

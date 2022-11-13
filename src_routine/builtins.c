@@ -7,7 +7,7 @@ int	get_pwd(char **buff)
 		return (1);
 	return (0);
 }
-//TODO : ADD FEATURE FOR +>  "-" OLDPWD
+
 int	cd_fn(t_command *command)
 {
 	char	*pwd;
@@ -15,12 +15,12 @@ int	cd_fn(t_command *command)
 	char	*path;
 
 	path = command->arguments[1];
-	if (!path)
+	if (!path || ft_strncmp(path, "~", 1))
 	{
 		if (get_env(&path, "HOME"))
 			return (1);
 	}
-	if (strncmp(path, "-", 1) == 0)
+	if (ft_strncmp(path, "-", 1) == 0)
 	{
 		if (get_env(&path, "OLDPWD"))
 			return (1);
@@ -31,7 +31,6 @@ int	cd_fn(t_command *command)
 		return (1);
 	del_malloc(pwd);
 	del_malloc(oldpwd);
-	printf("value of path = >> %s\n", path);
 	if (chdir((const char *)path) < 0)
 		return (1);
 	return (0);
@@ -57,7 +56,6 @@ int	echo_cmd(t_command *command)
 	return (0);
 }
 
-//TODO: correct unset command
 int	unset_cmd(t_command *command)
 {
 	char	**env;
