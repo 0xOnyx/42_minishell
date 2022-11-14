@@ -30,3 +30,23 @@ int	lex_add_back(t_lexical **root, enum e_type type, int size, char *content)
 	}
 	return (0);
 }
+
+int	lex_add_after(t_lexical **root, enum e_type type, int size, char *content)
+{
+	t_lexical	*new;
+	t_lexical	*current;
+	t_lexical	*tmp;
+
+	if (create_lexical(&new, type, size, content))
+		return (1);
+	if (!*root)
+		*root = new;
+	else
+	{
+		current = *root;
+		tmp = current->next;
+		current->next = new;
+		new->next = tmp;
+	}
+	return (0);
+}

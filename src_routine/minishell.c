@@ -6,8 +6,7 @@ static int	get_prompt(char buff[MAX_PROMPT])
 		NAME, " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ", "\x1b[32m[\x1b[97m "};
 	int			i;
 
-	i = 0;
-	ft_bzero(content_prompt, sizeof(char *) * 25);
+	i = 4;
 	get_pwd((char **)&content_prompt[i++]);
 	ft_strdup((char **)&content_prompt[i++], " \x1b[32m]\x1b[97m");
 	if (!get_git((char **)&content_prompt[i + 1]))

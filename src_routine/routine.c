@@ -1,5 +1,6 @@
 #include "minishell.h"
 
+//TODO : DELETE SHIt CTRL+D
 int	main(int argc, char **argv, char **env)
 {
 	t_data	data;

@@ -17,32 +17,29 @@ static int	is_pipe(char *str)
 static int	get_word_size(char *str)
 {
 	int	i;
-	int	is_in_squote;
-	int	is_in_dquote;
+	int	insq;
+	int	indq;
 
 	i = 0;
-	is_in_squote = 0;
-	is_in_dquote = 0;
+	insq = 0;
+	indq = 0;
 	while (str[i])
 	{
-		if (str[i] == '\'' && !is_in_squote)
-			is_in_squote = 1;
-		else if (str[i] == '\'' && is_in_squote)
-			is_in_squote = 0;
-		if ((str[i] == '"') && !is_in_dquote)
-			is_in_dquote = 1;
-		else if (str[i] == '"' && is_in_dquote)
-			is_in_dquote = 0;
-		if (str[i] == ' ' && !is_in_dquote && !is_in_squote)
+		if (str[i] == '\'' && !insq)
+			insq = 1;
+		else if (str[i] == '\'' && insq)
+			insq = 0;
+		if ((str[i] == '"') && !indq)
+			indq = 1;
+		else if (str[i] == '"' && indq)
+			indq = 0;
+		if (str[i] == ' ' && !indq && !insq)
 			return (i + 1);
-		if ((is_io(str + i) || is_pipe(str + i))
-			&& !is_in_squote && !is_in_dquote)
+		if ((is_io(str + i) || is_pipe(str + i)) && !insq && !indq)
 			return (i);
 		i++;
 	}
-	if (is_in_squote || is_in_dquote)
-		return (-1);
-	return (i);
+	return ((insq || indq) * (-1) + (!(insq || indq)) * i);
 }
 
 static int	is_space(char *str)
@@ -59,7 +56,7 @@ static int	is_space(char *str)
 	return (0);
 }
 
-int	get_type(t_lexical **type, char *str, size_t *i)
+int	get_type(t_lexical **type, char *str, int *i)
 {
 	int	val;
 
@@ -68,8 +65,8 @@ int	get_type(t_lexical **type, char *str, size_t *i)
 	else if (is_io(str))
 	{
 		*i += is_io(str);
-		return (lex_add_back(type, IO, is_io(str),
-				ft_substr(str, 0, is_io(str))));
+		return (lex_add_back(type, IO, is_io(str), \
+		ft_substr(str, 0, is_io(str))));
 	}
 	else if (is_pipe(str))
 	{

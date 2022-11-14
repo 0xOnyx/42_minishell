@@ -55,54 +55,29 @@ int	get_cmd(char **command_path, char *cmd)
 	return (free_split(paths));
 }
 
-static void	dup_close_in(int tube[2], int fd)
+int	get_len_cmd(t_lexical *current)
 {
-	dup2(tube[1], fd);
-	close(tube[1]);
-	close(tube[0]);
-}
+	int	res;
 
-static void	dup_close_out(int tube[2], int fd)
-{
-	dup2(tube[0], fd);
-	close(tube[1]);
-	close(tube[0]);
-}
-
-int	heredoc(int fd, char *end)
-{
-	int		id;
-	char	*current;
-	char	*tmp;
-	char	*res;
-	size_t	len;
-	int		tube[2];
-
-	pipe(tube);
-	id = fork();
-	if (!id)
+	res = 0;
+	if (current->type != PIPE)
+		res++;
+	while (current)
 	{
-		dup_close_in(tube, fd);
-		current = NULL;
-		res = NULL;
-		len = ft_strlen(end);
-		while (1)
-		{
-			current = readline("heredoc>");
-			if (ft_strncmp(current, end, len + 1) == 0)
-				break ;
-			if (ft_strjoin(&tmp, current, res))
-				return (1);
-			del_malloc(res);
-			free(current);
-			res = tmp;
-		}
-		free(current);
-		ft_putstr_fd(res, fd);
-		del_malloc(res);
-		exit(0);
+		if (current->type == PIPE)
+			res++;
+		current = current->next;
 	}
-	dup_close_out(tube, fd);
-	waitpid(id, NULL, 0);
-	return (0);
+	return (res);
+}
+
+t_lexical	*get_last_cmd(t_lexical *current)
+{
+	while (current->next)
+	{
+		if (current->type == PIPE)
+			return (current);
+		current = current->next;
+	}
+	return (current);
 }
