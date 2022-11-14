@@ -35,7 +35,8 @@ static int	get_word_size(char *str)
 			is_in_dquote = 0;
 		if (str[i] == ' ' && !is_in_dquote && !is_in_squote)
 			return (i + 1);
-		if ((is_io(str + i) || is_pipe(str + i)) && !is_in_squote && !is_in_dquote)
+		if ((is_io(str + i) || is_pipe(str + i))
+			&& !is_in_squote && !is_in_dquote)
 			return (i);
 		i++;
 	}
@@ -67,7 +68,8 @@ int	get_type(t_lexical **type, char *str, size_t *i)
 	else if (is_io(str))
 	{
 		*i += is_io(str);
-		return (lex_add_back(type, IO, is_io(str), ft_substr(str, 0, is_io(str))));
+		return (lex_add_back(type, IO, is_io(str),
+				ft_substr(str, 0, is_io(str))));
 	}
 	else if (is_pipe(str))
 	{
@@ -85,4 +87,3 @@ int	get_type(t_lexical **type, char *str, size_t *i)
 	}
 	return (0);
 }
-

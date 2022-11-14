@@ -24,9 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/exec_command_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/exec_command_utils.c" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
     <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="" />
@@ -172,11 +171,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Makefile Application.all" />
       <item itemvalue="Makefile Application.fclean" />
@@ -240,7 +234,8 @@
       <workItem from="1668311259639" duration="12437000" />
       <workItem from="1668375441868" duration="2805000" />
       <workItem from="1668381381231" duration="248000" />
-      <workItem from="1668381646523" duration="466000" />
+      <workItem from="1668381646523" duration="648000" />
+      <workItem from="1668434830767" duration="4644000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
@@ -373,22 +368,6 @@
     <MESSAGE value="save 9 nov 22" />
     <MESSAGE value="Change mistake for adding securing flag -Wall -Werror -Wextra" />
     <option name="LAST_COMMIT_MESSAGE" value="Change mistake for adding securing flag -Wall -Werror -Wextra" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src_routine/env.c</url>
-          <line>141</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CLionNativeAppRunConfigurationType">
-        <watch expression="*data-&gt;env @ 30" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

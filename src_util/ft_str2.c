@@ -24,10 +24,8 @@ size_t	ft_strlcat(char *dst, char *src, size_t max_len)
 
 int	ft_strjoin(char **buff, char *a, char *b)
 {
-	size_t	i;
 	size_t	len_max;
 
-	i = 0;
 	len_max = ft_strlen(a) + ft_strlen(b) + 1;
 	if (ft_calloc((void **)buff, len_max, sizeof(char)))
 		return (1);

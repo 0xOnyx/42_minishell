@@ -37,21 +37,15 @@ int	get_cmd(char **command_path, char *cmd)
 
 	i = 0;
 	if (access(cmd, X_OK) == 0)
-	{
-		ft_strdup(command_path, cmd);
-		return (0);
-	}
+		return (ft_strdup(command_path, cmd));
 	if (get_path(&path) || ft_split(&paths, path, ':'))
 		return (1 + (0 * del_malloc(path)));
 	while (paths[i])
 	{
 		if (ft_strjoin(&tmp, paths[i], "/")
 			|| ft_strjoin(command_path, tmp, cmd))
-		{
-			del_malloc(tmp);
-			del_malloc(command_path);
-			return (1);
-		}
+			return (1 + 0 * (del_malloc(tmp)
+					+ del_malloc(command_path)));
 		del_malloc(tmp);
 		if (access(*command_path, X_OK) == 0)
 			return (!free_split(paths));
@@ -59,6 +53,20 @@ int	get_cmd(char **command_path, char *cmd)
 		i++;
 	}
 	return (free_split(paths));
+}
+
+static void	dup_close_in(int tube[2], int fd)
+{
+	dup2(tube[1], fd);
+	close(tube[1]);
+	close(tube[0]);
+}
+
+static void	dup_close_out(int tube[2], int fd)
+{
+	dup2(tube[0], fd);
+	close(tube[1]);
+	close(tube[0]);
 }
 
 int	heredoc(int fd, char *end)
@@ -74,9 +82,7 @@ int	heredoc(int fd, char *end)
 	id = fork();
 	if (!id)
 	{
-		close(tube[1]);
-		dup2(tube[1], fd);
-		close(tube[0]);
+		dup_close_in(tube, fd);
 		current = NULL;
 		res = NULL;
 		len = ft_strlen(end);
@@ -96,9 +102,7 @@ int	heredoc(int fd, char *end)
 		del_malloc(res);
 		exit(0);
 	}
+	dup_close_out(tube, fd);
 	waitpid(id, NULL, 0);
-	dup2(tube[0], fd);
-	close(tube[1]);
-	close(tube[0]);
 	return (0);
 }

@@ -88,8 +88,7 @@ static int	is_current_env(char *str)
 			del_malloc(res);
 		return (1);
 	}
-	del_malloc(name);
-	return (0);
+	return (del_malloc(name));
 }
 
 int	add_env(char *str)

@@ -2,30 +2,28 @@
 
 static int	get_prompt(char buff[MAX_PROMPT])
 {
-	char	*content_prompt[25];
-	int		i;
+	const char	*content_prompt[25] = {"\xF0\x9F\x94\xA5\x1b[91m ",
+		NAME, " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ", "\x1b[32m[\x1b[97m "};
+	int			i;
 
 	i = 0;
 	ft_bzero(content_prompt, sizeof(char *) * 25);
-	ft_strdup(&content_prompt[i++], "\xF0\x9F\x94\xA5\x1b[91m ");
-	ft_strdup(&content_prompt[i++], NAME);
-	ft_strdup(&content_prompt[i++], " \x1b[97m\xF0\x9F\x94\xA5\t\xf0\x9f\x91\x89 ");
-	ft_strdup(&content_prompt[i++], "\x1b[32m[\x1b[97m ");
-	get_pwd(&content_prompt[i++]);
-	ft_strdup(&content_prompt[i++], " \x1b[32m]\x1b[97m");
-	if (!get_git(&content_prompt[i + 1]))
+	get_pwd((char **)&content_prompt[i++]);
+	ft_strdup((char **)&content_prompt[i++], " \x1b[32m]\x1b[97m");
+	if (!get_git((char **)&content_prompt[i + 1]))
 	{
-		ft_strdup(&content_prompt[i], "\x1b[32m[\x1b[96m ");
-		ft_strdup(&content_prompt[i + 2], " \x1b[32m]\x1b[97m");
+		ft_strdup((char **)&content_prompt[i], "\x1b[32m[\x1b[96m ");
+		ft_strdup((char **)&content_prompt[i + 2], " \x1b[32m]\x1b[97m");
 		i += 3;
 	}
-	ft_strdup(&content_prompt[i], " $ ");
+	ft_strdup((char **)&content_prompt[i], " $ ");
 	i = 0;
 	while (content_prompt[i])
 	{
-		if (ft_strlcat(buff, content_prompt[i], MAX_PROMPT) > MAX_PROMPT)
+		if (ft_strlcat(buff, (char *)content_prompt[i],
+				MAX_PROMPT) > MAX_PROMPT)
 			return (1);
-		del_malloc(content_prompt[i++]);
+		del_malloc((char *)content_prompt[i++]);
 	}
 	return (0);
 }
