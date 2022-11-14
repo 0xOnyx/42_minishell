@@ -4,7 +4,6 @@
 
 # include "includers.h"
 
-
 struct s_command
 {
 	char	*command;
@@ -52,6 +51,5 @@ int			wait_process(void);
 int			get_path(char **path);
 int			get_cmd(char **command_path, char *cmd);
 int			heredoc(int fd, char *end);
-
 
 #endif

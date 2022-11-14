@@ -5,7 +5,8 @@ static int	built_in_main(t_lexical *lexical, t_command *command)
 	char	*cmd;
 
 	cmd = command->command;
-	if (ft_strncmp(cmd, "export", 6) == 0 && lexical->next && lexical->next->type == WORD)
+	if (ft_strncmp(cmd, "export", 6) == 0
+		&& lexical->next && lexical->next->type == WORD)
 		return (!export_cmd(command));
 	else if (ft_strncmp(cmd, "unset", 5) == 0)
 		return (!unset_cmd(command));

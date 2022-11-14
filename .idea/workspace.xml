@@ -11,10 +11,10 @@
 }</component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="minishell" targetName="re" />
-      <config projectName="minishell" targetName="all" />
-      <config projectName="minishell" targetName="fclean" />
-      <config projectName="minishell" targetName="minishell" />
+      <config projectName="42_minishell" targetName="re" />
+      <config projectName="42_minishell" targetName="all" />
+      <config projectName="42_minishell" targetName="fclean" />
+      <config projectName="42_minishell" targetName="minishell" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -23,21 +23,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="Change mistake for adding securing flag -Wall -Werror -Wextra">
-      <change afterPath="$PROJECT_DIR$/includes/data.h" afterDir="false" />
+    <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/includers.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/includers.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_split.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_split.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str1.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str2.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str2.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str3.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str3.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/github.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/github.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/link_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/link_list.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/quicksort.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/quicksort.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/parser.h" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
     <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="" />
@@ -78,6 +67,22 @@
         <entry>
           <key>
             <ExternalProjectPojo>
+              <option name="name" value="42_minishell" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="minishell" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
               <option name="name" value="minishell" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
@@ -115,29 +120,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "//wsl$/Ubuntu/home/onyx/PROG/42_minishell",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
-    "structure.view.defaults.are.configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu/home/onyx/PROG/42_minishell&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="git commit -m &quot;fix cd back pwd&quot;" />
@@ -147,22 +152,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="42_minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="42_minishell" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="minishell" CONFIG_NAME="minishell" version="1">
+    <configuration name="minishell" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="42_minishell" TARGET_NAME="minishell" CONFIG_NAME="minishell" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="42_minishell" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -234,6 +239,8 @@
       <workItem from="1668302225560" duration="7903000" />
       <workItem from="1668311259639" duration="12437000" />
       <workItem from="1668375441868" duration="2805000" />
+      <workItem from="1668381381231" duration="248000" />
+      <workItem from="1668381646523" duration="466000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>

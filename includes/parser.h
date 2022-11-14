@@ -19,9 +19,11 @@ struct s_lexical
 };
 
 int			get_type(t_lexical **type, char *str, size_t *i);
-int			create_lexical(t_lexical **lexical, enum e_type type, int size, char *content);
+int			create_lexical(t_lexical **lexical,
+				enum e_type type, int size, char *content);
 int			lex_add_front(t_lexical **root, enum e_type type, int size);
-int			lex_add_back(t_lexical **root, enum e_type type, int size, char*content);
+int			lex_add_back(t_lexical **root, enum e_type type,
+				int size, char*content);
 int			get_lexical(t_lexical **lst_head, char *str);
 
 void		in_dquote(int *i, char c);
