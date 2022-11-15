@@ -25,9 +25,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outruc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_util/ft_str4.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str4.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tregfvdsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/data.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/data.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/garbage.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/garbage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/includers.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/includers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/parser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/utils.h" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
     <list id="4a420855-c770-4141-85ef-f53476cc8a28" name="Changes by trubat-d" comment="" />
@@ -227,7 +231,7 @@
       <workItem from="1668454542398" duration="13730000" />
       <workItem from="1668474850356" duration="11596000" />
       <workItem from="1668530204347" duration="4000" />
-      <workItem from="1668541046474" duration="919000" />
+      <workItem from="1668541046474" duration="3817000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
