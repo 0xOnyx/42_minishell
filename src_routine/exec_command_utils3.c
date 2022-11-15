@@ -43,8 +43,8 @@ int	exec_main(t_command *command,
 			if (exec_this(command, *lexical, last, command->tmp_fd))
 			{
 				if (errno)
-					perror("Error");
-				exit (1);
+					ft_perror("Error");
+				exit (127);
 			}
 			exit(0);
 		}

@@ -13,7 +13,7 @@ int	print_env(void)
 		i = 0;
 		while ((*env)[i] && (*env)[i] != '=')
 			i++;
-		if (*env[i] != '\0')
+		if ((*env)[i] != '\0')
 		{
 			ft_putstr_fd(*env, 1);
 			ft_putstr_fd("\n", 1);

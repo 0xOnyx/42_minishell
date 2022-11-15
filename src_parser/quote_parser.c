@@ -3,7 +3,16 @@
 static void	change_quote(char **tmp, char **tmpcontent, \
 t_lexical **lst_head, int *i)
 {
-	if (!get_env(tmp, ft_substr(*(tmpcontent), *(i) + \
+	t_data	*data;
+
+	data = get_data(NULL);
+	if ((*tmpcontent)[*i + 1] == '?')
+	{
+		ft_itoa(tmp, data->status);
+		(*lst_head)->content = ft_str_include(*(tmpcontent),*tmp, *(i), \
+					get_next_space(*(tmpcontent) + *(i) + 1, " \"'$") + 1);
+	}
+	else if (!get_env(tmp, ft_substr(*(tmpcontent), *(i) + \
 				1, get_next_space(*(tmpcontent) + *(i) + 1, " \"'$"))))
 	{
 		(*lst_head)->content = ft_str_include(\
@@ -27,6 +36,15 @@ static void	process_quote(t_lexical *lst_head, char \
 		in_dquote(&(quotes[1]), tmpcontent[i]);
 		if (tmpcontent[i] == '$' && (!quotes[0] || quotes[1]))
 			change_quote(&tmp, &tmpcontent, &lst_head, &i);
+		else if (tmpcontent[i] == '~' && i == 0 && !quotes[0])
+		{
+			if (!get_env(&tmp, "HOME"))
+			{
+				lst_head->content = ft_str_include(\
+					tmpcontent, tmp, i, \
+					1);
+			}
+		}
 		if ((unsigned long)i == ft_strlen(tmpcontent) - 1 \
 		&& tmpcontent[i] == ' ')
 			lst_head->content = ft_str_include(tmpcontent, "", i, \

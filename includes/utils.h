@@ -22,5 +22,6 @@ int		ft_strchr(char **res, char *str, char c);
 int		ft_strccmp(char *a, char *b, char c);
 int		quicksort(char **str, int lo, int hi);
 char	*ft_str_include(char *src, char *include, int pos, int skip);
+int		ft_itoa(char **res, int nbr);
 
 #endif

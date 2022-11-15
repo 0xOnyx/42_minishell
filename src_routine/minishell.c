@@ -49,7 +49,7 @@ static void	exit_handler(int sign)
 	t_data	*data;
 
 	data = get_data(NULL);
-	if ((sign == SIGINT || sign == SIGQUIT) && !data->is_running)
+	if (sign == SIGINT && !data->is_running)
 	{
 		write(2, "\n", 1);
 		rl_replace_line("", 0);
@@ -58,14 +58,32 @@ static void	exit_handler(int sign)
 	}
 }
 
+static int	signal_action(void)
+{
+	struct termios		termios_p;
+	struct sigaction	act_int;
+	struct sigaction	act_quit;
+
+	act_int.sa_handler = &exit_handler;
+	act_quit.sa_handler = SIG_IGN;
+	if (tcgetattr(0, &termios_p) != 0)
+		return (1);
+	termios_p.c_lflag &= ~ECHOCTL;
+	if (tcsetattr(0, TCSANOW, &termios_p) != 0
+		|| sigaction(SIGINT, &act_int, NULL) != 0
+		|| sigaction(SIGQUIT, &act_quit, NULL) != 0)
+		return (1);
+	return (0);
+}
+
 int	minishell(void)
 {
 	t_data		*data;
 	char		*line;
 
+	if (signal_action())
+		return (1);
 	data = get_data(NULL);
-	signal(SIGINT, &exit_handler);
-	signal(SIGQUIT, &exit_handler);
 	while (!prompt(&line))
 	{
 		if (parser(line) || !data->lexical)

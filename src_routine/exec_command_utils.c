@@ -6,8 +6,8 @@ int	wait_process(void)
 
 	while (waitpid(-1, &status, 0) != -1)
 		continue ;
-	if (errno == ECHILD)
-		return (WIFEXITED(status));
+	if (errno == ECHILD && WIFEXITED(status))
+		return (WEXITSTATUS(status));
 	return (0);
 }
 

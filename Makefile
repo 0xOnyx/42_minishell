@@ -28,7 +28,7 @@ SRC_ROUTINE			= 	routine.c env.c builtins.c minishell.c \
 SRC_GARBAGE			= 	garbage.c malloc.c free.c
 SRC_UTIL			= 	ft_mem.c ft_str1.c ft_str2.c ft_str3.c \
 						get_data.c ft_split.c link_list.c github.c \
-						quicksort.c ft_str4.c
+						quicksort.c ft_str4.c ft_itoa.c
 
 SRC_PARSERS			= $(addprefix $(PATH_PARSER),$(SRC_PARSER))
 SRC_ROUTINES		= $(addprefix $(PATH_ROUTINE),$(SRC_ROUTINE))

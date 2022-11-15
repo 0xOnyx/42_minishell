@@ -70,8 +70,9 @@ int	exec_this(t_command	*command, t_lexical *node,
 			return (1);
 	if (!command->command || built_in_fork(command))
 		return (0);
-	if (get_cmd(&command_path, command->command)
-		|| execve(command_path, command->arguments, get_data(NULL)->env) < 0)
+	if (get_cmd(&command_path, command->command))
+		return (1);
+	if (execve(command_path, command->arguments, get_data(NULL)->env) < 0)
 		return (1);
 	return (0);
 }

@@ -15,7 +15,7 @@ int	cd_fn(t_command *command)
 	char	*path;
 
 	path = command->arguments[1];
-	if (!path || ft_strncmp(path, "~", 1))
+	if (!path)
 	{
 		if (get_env(&path, "HOME"))
 			return (1);
@@ -50,7 +50,11 @@ int	echo_cmd(t_command *command)
 		option++;
 	}
 	while (*command->arguments)
+	{
 		ft_putstr_fd(*(command->arguments++), 1);
+		if (*(command->arguments))
+			write(1, " ", 1);
+	}
 	if (!option)
 		ft_putstr_fd("\n", 1);
 	return (0);

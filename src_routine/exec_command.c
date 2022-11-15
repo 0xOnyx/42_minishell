@@ -40,7 +40,7 @@ int	exec_command(void)
 	if (ft_calloc((void **)&data->pid, sizeof(pid_t), data->len_cmd))
 		return (1);
 	data->is_running = 1;
-	while (lexical)
+	while (lexical && *lexical->content)
 	{
 		if (parse_command(&lexical, data->pid[pid_i++]))
 			break ;
