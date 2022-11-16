@@ -93,7 +93,7 @@ int	minishell(void)
 	t_data		*data;
 	char		*line;
 
-	welcome();
+//	welcome();
 	if (signal_action())
 		return (1);
 	data = get_data(NULL);

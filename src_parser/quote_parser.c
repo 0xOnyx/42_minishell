@@ -128,6 +128,7 @@ int	rem_quote(t_lexical *lst_head)
 		quotes[1] = 0;
 		if (ft_strdup(&tmpcontent, lst_head->content))
 			return (1);
+		tmpcontent = ft_strtrim(tmpcontent, " ");
 		quote_rmcheck(&tmpcontent, quotes);
 		j++;
 		del_malloc(lst_head->content);
