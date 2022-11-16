@@ -14,8 +14,8 @@
 
 static void	dup_close_in(int tube[2])
 {
-	close(tube[1]);
 	dup2(tube[1], 1);
+	close(tube[1]);
 	close(tube[0]);
 }
 
@@ -63,7 +63,7 @@ int	heredoc(int fd, char *end)
 	id = fork();
 	if (!id)
 		heredoc_fork(fd, end, tube);
-	waitpid(id, NULL, 0);
 	dup_close_out(tube);
+	waitpid(id, NULL, 0);
 	return (0);
 }
