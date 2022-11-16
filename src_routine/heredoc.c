@@ -12,16 +12,16 @@
 
 #include "minishell.h"
 
-static void	dup_close_in(int tube[2], int fd)
+static void	dup_close_in(int tube[2])
 {
 	close(tube[1]);
-	dup2(tube[1], fd);
+	dup2(tube[1], 1);
 	close(tube[0]);
 }
 
-static void	dup_close_out(int tube[2], int fd)
+static void	dup_close_out(int tube[2])
 {
-	dup2(tube[0], fd);
+	dup2(tube[0], 0);
 	close(tube[1]);
 	close(tube[0]);
 }
@@ -36,7 +36,7 @@ static void	heredoc_fork(int fd, char *end, int tube[2])
 	current = NULL;
 	res = NULL;
 	len = ft_strlen(end);
-	dup_close_in(tube, fd);
+	dup_close_in(tube);
 	while (1)
 	{
 		current = readline("heredoc>");
@@ -64,6 +64,6 @@ int	heredoc(int fd, char *end)
 	if (!id)
 		heredoc_fork(fd, end, tube);
 	waitpid(id, NULL, 0);
-	dup_close_out(tube, fd);
+	dup_close_out(tube);
 	return (0);
 }

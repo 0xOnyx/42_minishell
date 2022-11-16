@@ -27,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_routine/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/heredoc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_routine/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/minishell.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_util/ft_str4.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_util/ft_str4.c" afterDir="false" />
     </list>
@@ -238,7 +239,7 @@
       <workItem from="1668474850356" duration="11596000" />
       <workItem from="1668530204347" duration="4000" />
       <workItem from="1668541046474" duration="3817000" />
-      <workItem from="1668553554527" duration="8281000" />
+      <workItem from="1668553554527" duration="12167000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
