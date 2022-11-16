@@ -41,6 +41,20 @@ int	ft_rmv_char(char **buffadr, size_t i)
 	return (0);
 }
 
+void	welcome(void)
+{
+	char	*arg[3];
+
+	if (fork() == 0)
+	{
+		arg[0] = "say";
+		arg[1] = "Welcome to the best minishell !";
+		arg[2] = NULL;
+		if (execve("/usr/bin/say", arg, NULL) < 0)
+			exit(1);
+	}
+}
+
 void	ft_perror(char *str)
 {
 	char	*arg[3];

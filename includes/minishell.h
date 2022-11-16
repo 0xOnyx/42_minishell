@@ -57,6 +57,7 @@ int			minishell(void);
 int			exec_command(void);
 int			parser(char *str);
 
+void		welcome(void);
 void		close_dup_in(int pipe[2], int fd);
 void		close_dup_out(int pipe[2], int fd);
 int			wait_process(void);
