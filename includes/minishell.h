@@ -36,7 +36,7 @@ struct s_data
 	int			is_running;
 };
 
-int			heredoc(int fd, char *end);
+int			heredoc(char *end, t_command *command);
 void		safe_exit(void);
 int			echo_cmd(t_command *command);
 int			get_pwd(char **buff);
@@ -63,7 +63,6 @@ void		close_dup_out(int pipe[2], int fd);
 int			wait_process(void);
 int			get_path(char **path);
 int			get_cmd(char **command_path, char *cmd);
-int			heredoc(int fd, char *end);
 int			built_in_main(t_lexical *lexical, t_command *command);
 int			built_in_fork(t_command *command);
 int			get_len_cmd(t_lexical *current);

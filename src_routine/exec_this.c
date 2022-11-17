@@ -60,8 +60,6 @@ int	exec_this_while(t_lexical **current, int *tmp_fd)
 				if (open_file_in(*current, tmp_fd))
 					return (1);
 			}
-			else if (heredoc(0, (*current)->next->content))
-				return (1);
 		}
 	}
 	*current = (*current)->next;
