@@ -24,10 +24,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebffa8e3-886e-4897-9b0b-fb8241310d24" name="Changes" comment="save 9 nov 22">
-      <change afterPath="$PROJECT_DIR$/.idea/42_minishell.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_routine/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src_routine/heredoc.c" afterDir="false" />
     </list>
     <list id="6867d597-2a24-42dd-a8bd-d0d69b7762a5" name="Changes by jerdos-s" comment="jerdos 8 nv" />
     <list id="277691ef-63fe-49c2-9ba4-ee44596e7544" name="Changes by theo" comment="" />
@@ -139,6 +137,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Makefile Application.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="42_minishell" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/minishell">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -234,7 +237,8 @@
       <workItem from="1668607824077" duration="822000" />
       <workItem from="1668608737824" duration="106000" />
       <workItem from="1668608854857" duration="544000" />
-      <workItem from="1668609668573" duration="2000" />
+      <workItem from="1668609668573" duration="633000" />
+      <workItem from="1668646679799" duration="1630000" />
     </task>
     <task id="LOCAL-00001" summary="save 5 nov 22">
       <created>1667759200051</created>
