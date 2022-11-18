@@ -36,11 +36,10 @@ t_lexical **lst_head, int *i)
 	{
 		(*lst_head)->content = ft_str_include(*(tmpcontent), "", *(i), \
 					get_next_space(*(tmpcontent) + *(i) + 1, " \"'$") + 1);
-		ft_strdup(&((*lst_head)->content), *tmpcontent);
 	}
 }
 
-static void	process_quote(t_lexical *lst_head, char \
+static void	process_quote(t_lexical *lst_head, char
 *tmpcontent, int *quotes, char *tmp)
 {
 	int	i;
