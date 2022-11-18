@@ -81,5 +81,4 @@ char		*get_name_env(char *str);
 int			get_pos_del(size_t size_str, char *str);
 void		ft_perror(char *str);
 
-
 #endif

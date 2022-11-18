@@ -47,6 +47,6 @@ int			ft_rmv_char(char **buffadr, size_t i);
 int			get_next_space(char *str, char *charset);
 int			parse_dquote(t_lexical *lst_head);
 int			rem_quote(t_lexical *lst_head);
-int	quoter(char **tmpcontent, int *quotes, int i, char c);
+int			quoter(char **tmpcontent, int *quotes, int i, char c);
 
 #endif
