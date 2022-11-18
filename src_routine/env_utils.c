@@ -30,7 +30,7 @@ int	get_pos_del(size_t size_str, char *str)
 	data = get_data(NULL);
 	pos_del = 0;
 	while (data->env[pos_del]
-		&& ft_strncmp(data->env[pos_del], str, size_str) == 0
+		&& ft_strncmp(data->env[pos_del], str, size_str) != 0
 		&& data->env[pos_del][size_str] != '=')
 		pos_del++;
 	return (pos_del);

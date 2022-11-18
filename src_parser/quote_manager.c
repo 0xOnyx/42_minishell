@@ -28,14 +28,14 @@ void	in_squote(int *i, char c)
 		*i -= 1;
 }
 
-void	is_in_dquote(int *i, char c)
+void	is_in_dquote(int *i, char c, int quotes)
 {
-	if (c == '"')
+	if (c == '"' && !quotes)
 		*i += 1;
 }
 
-void	is_in_squote(int *i, char c)
+void	is_in_squote(int *i, char c, int quotes)
 {
-	if (c == '\'')
+	if (c == '\'' && !quotes)
 		*i += 1;
 }

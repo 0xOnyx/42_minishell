@@ -25,8 +25,7 @@ int	exec_pipe(t_command *command,
 	if (!data->pid[pid_i])
 	{
 		if ((*lexical)->type == IO
-			&& (*lexical)->size == 2
-			&& (*lexical)->content[0] == '<')
+			&& (*lexical)->size == 2 && (*lexical)->content[0] == '<')
 			heredoc((*lexical)->next->content, command);
 		dup2(command->pipe[1], 1);
 		close(command->pipe[1]);
@@ -56,8 +55,7 @@ int	exec_main(t_command *command,
 			return (1);
 		else if (!data->pid[pid_i])
 		{
-			if ((*lexical)->type == IO
-				&& (*lexical)->size == 2
+			if ((*lexical)->type == IO && (*lexical)->size == 2
 				&& (*lexical)->content[0] == '<')
 				heredoc((*lexical)->next->content, command);
 			if (exec_this(command, *lexical, last, command->tmp_fd))

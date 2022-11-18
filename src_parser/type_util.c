@@ -37,13 +37,13 @@ static int	get_word_size(char *str)
 	indq = 0;
 	while (str[i])
 	{
-		if (str[i] == '\'' && !insq)
+		if (str[i] == '\'' && !insq && !indq)
 			insq = 1;
-		else if (str[i] == '\'' && insq)
+		else if (str[i] == '\'' && insq && !indq)
 			insq = 0;
-		if ((str[i] == '"') && !indq)
+		if ((str[i] == '"') && !indq && !insq)
 			indq = 1;
-		else if (str[i] == '"' && indq)
+		else if (str[i] == '"' && indq && !insq)
 			indq = 0;
 		if (str[i] == ' ' && !indq && !insq)
 			return (i + 1);

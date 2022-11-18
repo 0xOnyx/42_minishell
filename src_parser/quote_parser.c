@@ -27,14 +27,16 @@ t_lexical **lst_head, int *i)
 	else if (!get_env(tmp, ft_substr(*(tmpcontent), *(i) + \
 				1, get_next_space(*(tmpcontent) + *(i) + 1, " \"'$"))))
 	{
-		(*lst_head)->content = ft_str_include(\
+		*tmpcontent = ft_str_include(\
 					*(tmpcontent), *tmp, *(i), \
 					get_next_space(*(tmpcontent) + *(i) + 1, " \"'$") + 1);
+		ft_strdup(&((*lst_head)->content), *tmpcontent);
 	}
 	else
 	{
 		(*lst_head)->content = ft_str_include(*(tmpcontent), "", *(i), \
 					get_next_space(*(tmpcontent) + *(i) + 1, " \"'$") + 1);
+		ft_strdup(&((*lst_head)->content), *tmpcontent);
 	}
 }
 
@@ -57,6 +59,8 @@ static void	process_quote(t_lexical *lst_head, char \
 				lst_head->content = ft_str_include(\
 					tmpcontent, tmp, i, \
 					1);
+				i++;
+				continue ;
 			}
 		}
 		i++;
@@ -93,17 +97,25 @@ static void	quote_rmcheck(char **tmpcontent, int *quotes)
 	i = 0;
 	while ((*tmpcontent)[i])
 	{
-		is_in_squote(&(quotes[0]), (*tmpcontent)[i]);
-		is_in_dquote(&(quotes[1]), (*tmpcontent)[i]);
-		if ((quotes[1] && !quotes[0]) || (quotes[0] && !quotes[1]))
+		is_in_squote(&(quotes[0]), (*tmpcontent)[i], quotes[1]);
+		is_in_dquote(&(quotes[1]), (*tmpcontent)[i], quotes[0]);
+		if (quotes[1] && !quotes[0])
 		{
-			if ((*tmpcontent)[i] == '"' || (*tmpcontent)[i] == '\'')
+			if ((*tmpcontent)[i] == '"')
+			{
+				ft_rmv_char(tmpcontent, i);
+				if (quotes[1] >= 2)
+					quotes[1] = 0;
+				continue ;
+			}
+		}
+		else if (quotes[0] && !quotes[1])
+		{
+			if ((*tmpcontent)[i] == '\'')
 			{
 				ft_rmv_char(tmpcontent, i);
 				if (quotes[0] >= 2)
 					quotes[0] = 0;
-				if (quotes[1] >= 2)
-					quotes[1] = 0;
 				continue ;
 			}
 		}
@@ -124,15 +136,18 @@ int	rem_quote(t_lexical *lst_head)
 	j = 0;
 	while (lst_head)
 	{
-		quotes[0] = 0;
-		quotes[1] = 0;
-		if (ft_strdup(&tmpcontent, lst_head->content))
-			return (1);
-		tmpcontent = ft_strtrim(tmpcontent, " ");
-		quote_rmcheck(&tmpcontent, quotes);
-		j++;
-		del_malloc(lst_head->content);
-		lst_head->content = tmpcontent;
+		if (*lst_head->content)
+		{
+			quotes[0] = 0;
+			quotes[1] = 0;
+			if (ft_strdup(&tmpcontent, lst_head->content))
+				return (1);
+			tmpcontent = ft_strtrim(tmpcontent, " ");
+			quote_rmcheck(&tmpcontent, quotes);
+			j++;
+			del_malloc(lst_head->content);
+			lst_head->content = tmpcontent;
+		}
 		lst_head = lst_head->next;
 	}
 	return (0);

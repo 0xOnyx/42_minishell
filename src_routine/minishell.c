@@ -43,7 +43,12 @@ static int	prompt(char **line)
 {
 	char	buff[MAX_PROMPT];
 	char	*current_line;
+	t_data	*data;
 
+	data = get_data(NULL);
+	while (1)
+		if (!data->is_running)
+			break ;
 	ft_bzero(buff, MAX_PROMPT);
 	if (get_prompt(buff))
 		return (1);
@@ -93,7 +98,6 @@ int	minishell(void)
 	t_data		*data;
 	char		*line;
 
-//	welcome();
 	if (signal_action())
 		return (1);
 	data = get_data(NULL);
@@ -104,7 +108,7 @@ int	minishell(void)
 		else if (exec_command())
 			perror("Error:");
 		free(line);
-		ft_putstr_fd("\n", 1);
+		//ft_putstr_fd("\n", 1);
 	}
 	return (0);
 }
