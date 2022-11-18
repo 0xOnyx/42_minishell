@@ -43,15 +43,15 @@ int	ft_rmv_char(char **buffadr, size_t i)
 
 void	ft_perror(char *str)
 {
-	//char	*arg[3];
+	char	*arg[3];
 
-	/*if (fork() == 0)
+	if (fork() == 0)
 	{
 		arg[0] = "say";
 		arg[1] = strerror(errno);
 		arg[2] = NULL;
 		if (execve("/usr/bin/say", arg, NULL) < 0)
 			exit(1);
-	}*/
+	}
 	perror(str);
 }

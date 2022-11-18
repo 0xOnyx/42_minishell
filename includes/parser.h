@@ -39,13 +39,14 @@ int			lex_add_after(t_lexical **root,
 				enum e_type type, int size, char *content);
 int			get_lexical(t_lexical **lst_head, char *str);
 
-void		in_dquote(int *i, char c);
-void		in_squote(int *i, char c);
+void		in_dquote(int *i, char c, int quotes);
+void		in_squote(int *i, char c, int quotes);
 void		is_in_squote(int *i, char c, int quotes);
 void		is_in_dquote(int *i, char c, int quotes);
 int			ft_rmv_char(char **buffadr, size_t i);
 int			get_next_space(char *str, char *charset);
 int			parse_dquote(t_lexical *lst_head);
 int			rem_quote(t_lexical *lst_head);
+int	quoter(char **tmpcontent, int *quotes, int i, char c);
 
 #endif

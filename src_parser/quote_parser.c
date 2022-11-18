@@ -48,9 +48,9 @@ static void	process_quote(t_lexical *lst_head, char \
 	i = 0;
 	while (tmpcontent[i])
 	{
-		in_squote(&(quotes[0]), tmpcontent[i]);
-		in_dquote(&(quotes[1]), tmpcontent[i]);
-		if (tmpcontent[i] == '$' && (!quotes[0] || quotes[1]))
+		in_squote(&(quotes[0]), tmpcontent[i], quotes[1]);
+		in_dquote(&(quotes[1]), tmpcontent[i], quotes[0]);
+		if ((!quotes[0] && tmpcontent[i] == '$'))
 			change_quote(&tmp, &tmpcontent, &lst_head, &i);
 		else if (tmpcontent[i] == '~' && i == 0 && !quotes[0])
 		{
@@ -101,24 +101,12 @@ static void	quote_rmcheck(char **tmpcontent, int *quotes)
 		is_in_dquote(&(quotes[1]), (*tmpcontent)[i], quotes[0]);
 		if (quotes[1] && !quotes[0])
 		{
-			if ((*tmpcontent)[i] == '"')
-			{
-				ft_rmv_char(tmpcontent, i);
-				if (quotes[1] >= 2)
-					quotes[1] = 0;
+			if (quoter(tmpcontent, &(quotes[1]), i, '"'))
 				continue ;
-			}
 		}
 		else if (quotes[0] && !quotes[1])
-		{
-			if ((*tmpcontent)[i] == '\'')
-			{
-				ft_rmv_char(tmpcontent, i);
-				if (quotes[0] >= 2)
-					quotes[0] = 0;
+			if (quoter(tmpcontent, &(quotes[0]), i, '\''))
 				continue ;
-			}
-		}
 		if (quotes[0] >= 2)
 			quotes[0] = 0;
 		if (quotes[1] >= 2)

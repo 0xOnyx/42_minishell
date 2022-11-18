@@ -108,7 +108,6 @@ int	minishell(void)
 		else if (exec_command())
 			perror("Error:");
 		free(line);
-		//ft_putstr_fd("\n", 1);
 	}
 	return (0);
 }
